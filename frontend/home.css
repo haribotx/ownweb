@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.section-title-span{
+    color: orange;
+}
+
+.section-title{
+color: white;
+}
+
+body{
+    background-color: black;
+}
