@@ -4,8 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog | My Website</title>
+  <title>Botx Website</title>
   <link rel="stylesheet" href="home.css" />
+  <link rel="icon" type="image/png" href="/frontend/images/logo.png" />
+
+
 </head>
 <body>
   <!-- Navbar -->
@@ -17,12 +20,49 @@
   <section class="blog-section">
     <div class="container">
       <h2 class="section-title">Creative <span class="section-title-span">Work</span></h2>
-      <div id="blog-container" class="blog-grid">
+      <div class="blog-grid">
         <!-- Blog cards will be injected here -->
       </div>
     </div>
   </section>
 
-  <script src="js/blog.js"></script>
+  <section class="filter-section">
+    <div class="head-section"  id="filter-section">
+      <h2 class="filter-item active">All</h2>
+      <h2 class="filter-item">Web App</h2>
+      <h2 class="filter-item ">Website</h2>
+      <h2 class="filter-item ">Custom Sas Product</h2>
+
+      </div>
+    </div>
+  </section>
+  <script>
+  const filterItems = document.querySelectorAll('.filter-item');
+
+  filterItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove active from all
+      filterItems.forEach(i => i.classList.remove('active'));
+      
+      // Add active to clicked
+      item.classList.add('active');
+
+    
+      const selected = item.textContent.trim();
+      console.log("Selected:", selected);
+
+      // Example: you can call your filtering logic here
+      // filterBlogs(selected);
+    });
+  });
+</script>
+
+<section class="blogs" id="blog-container">
+
+</section>
+
+
+
+  <script src="home.js"></script>
 </body>
 </html>
