@@ -37,7 +37,7 @@ gap: 100px;
 .blog-card img {
   width: 546px;       
   height: 566px;        
-  object-fit: cover;    /* crop image proportionally */
+  object-fit: cover;   
 }
 
   .filter-section {
@@ -53,9 +53,7 @@ gap: 100px;
     transition: all 0.3s ease;
   }
 
-    .filter-item:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
+
 
   .filter-item.active {
     color: #ffffff;

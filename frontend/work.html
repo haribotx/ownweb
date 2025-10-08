@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Botx Website</title>
+  <link rel="stylesheet" href="work.css" />
+  <link rel="icon" type="image/png" href="/frontend/images/logo.png" />
+
+
+</head>
+<body>
+      <header>
+  </header>
+
+  <!-- Work Section -->
+  <section class="blog-section">
+    <div class="container">
+      <h2 class="section-title">Showcasing  <span class="section-title-span">Design Thinking
+</span>And User Experience</h2>
+      <div class="blog-grid">
+        <!-- Work cards will be injected here -->
+      </div>
+    </div>
+  </section>
+
+    <section class="filter-section">
+    <div class="head-section"  id="filter-section">
+      <h2 class="filter-item active">Mobile App</h2>
+      <h2 class="filter-item">Web App</h2>
+      <h2 class="filter-item ">Website</h2>
+      <h2 class="filter-item ">Custom Sas Product</h2>
+
+      </div>
+    </div>
+  </section>
+    <script>
+  const filterItems = document.querySelectorAll('.filter-item');
+
+  filterItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove active from all
+      filterItems.forEach(i => i.classList.remove('active'));
+      
+      // Add active to clicked
+      item.classList.add('active');
+
+    
+      const selected = item.textContent.trim();
+      console.log("Selected:", selected);
+
+      // Example: you can call your filtering logic here
+      // filterWorks(selected);
+    });
+  });
+</script>
+
+<section class="works" id="work-container">
+</section>
+
+      <script src="work.js"></script>
+</body>
+</html>
