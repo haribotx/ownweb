@@ -11,7 +11,7 @@ fetch('http://localhost:1337/api/blogs?populate=*')
     blogs.forEach(blog => {
       // ✅ Fixed structure — direct access, no attributes
       const title = blog.Title;
-      const body = blog.Body?.[0]?.children?.[0]?.text || "";
+      const body = blog.Body;
       
     //   const image = blog.cover?.data?.attributes?.url 
     //     ? `http://localhost:1337${blog.cover.data.attributes.url}`

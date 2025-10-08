@@ -1,71 +1,115 @@
-.container{
-    display: flex;
-    justify-content: center;
+/* General Styling */
+body {
+  background-color: black;
+  padding: 10px;
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
 }
 
-.section-title-span{
-    color: #DF5A1C;
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.section-title{
-color: white;
-font-size: 58px;
+.section-title {
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-body{
-    background-color: black;
-    padding: 10px;
+.section-title-span {
+  color: #DF5A1C;
 }
 
+/* Filter Section */
+.filter-section {
+  padding: 40px 0;
+  text-align: center;
+}
 
 .head-section {
-display: flex;
-justify-content: center;
-color: white;
-gap: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  color: white;
+  gap: 40px;
+  padding: 10px;
 }
 
-.blogs{
-    color: white;
-    padding: 20px;
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 50px;
+.filter-item {
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.filter-item:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.filter-item.active {
+  color: #ffffff;
+  border-color: #FF34001A;
+  padding: 10px 40px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Blog Grid Section */
+.blogs {
+  color: white;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 20px;
+  justify-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-card {
+  max-width: 500px;
+  width: 100%;
+  background-color: rgba(255,255,255,0.05);
+  padding: 15px;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
 }
 
 .blog-card img {
-  width: 546px;       
-  height: 566px;        
-  object-fit: cover;    /* crop image proportionally */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 15px;
 }
 
-  .filter-section {
-    padding: 40px 0;
-    text-align: center;
-  }
+.blog-card h2 {
+  font-size: 22px;
+  color: #fff;
+  margin-top: 10px;
+}
 
-    .filter-item {
-    padding: 10px 20px 10px 20px;
-    border-color: #FF34001A;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-  }
+.blog-card p {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.6;
+  margin-top: 8px;
+  text-align: justify;
+}
 
-    .filter-item:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
-
-  .filter-item.active {
-    color: #ffffff;
-    border-color: #FF34001A;
-    padding: 10px 50px 10px 50px;
-    box-shadow: 0 0 10px rgba(255,255,255,0.5);
-  }
-
-
-  #blog-details {
+/* Blog Details Section */
+#blog-details {
   margin-top: 40px;
   padding: 30px;
   background: #222;
@@ -96,4 +140,78 @@ gap: 100px;
 
 #back-btn:hover {
   background: #666;
+}
+
+/* ===============================
+   RESPONSIVE MEDIA QUERIES
+================================*/
+
+/* Large tablets and small laptops */
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .filter-item {
+    font-size: 1rem;
+  }
+  .blogs {
+    gap: 30px;
+  }
+}
+
+/* Tablets and large phones */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  .head-section {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .filter-item {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+  .blogs {
+    grid-template-columns: 1fr;
+  }
+  .blog-card {
+    padding: 10px;
+  }
+  .blog-card h2 {
+    font-size: 20px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+  .head-section {
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding: 5px;
+    overflow-x: auto;
+    justify-content: center;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filter-item {
+    font-size: 0.7rem;
+    padding: 6px 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .filter-item.active {
+    padding: 6px 14px;
+  }
+  .blog-card h2 {
+    font-size: 18px;
+  }
+  .blog-card p {
+    font-size: 13px;
+  }
+  .blogs {
+    gap: 20px;
+  }
 }
