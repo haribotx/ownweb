@@ -59,6 +59,17 @@ body {
     margin: 0 auto;
 }
 
+.no-works {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* adjust if needed */
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #555;
+}
+
 /* Work Card - Two Column Layout */
 .work-card {
     display: grid;
