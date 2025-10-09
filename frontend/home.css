@@ -1,4 +1,6 @@
-/* General Styling */
+/* ===============================
+   GENERAL STYLING
+================================*/
 body {
   background-color: black;
   padding: 10px;
@@ -25,7 +27,9 @@ body {
   color: #DF5A1C;
 }
 
-/* Filter Section */
+/* ===============================
+   FILTER SECTION
+================================*/
 .filter-section {
   padding: 40px 0;
   text-align: center;
@@ -61,7 +65,9 @@ body {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Blog Grid Section */
+/* ===============================
+   BLOG GRID SECTION
+================================*/
 .blogs {
   color: white;
   padding: 20px;
@@ -87,13 +93,22 @@ body {
   box-shadow: 0 0 15px rgba(255,255,255,0.1);
 }
 
+/* ✅ Uniform Responsive Blog Images */
 .blog-card img {
   width: 100%;
-  height: auto;
+  height: 250px; /* Default height for desktops */
   object-fit: cover;
   border-radius: 15px;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
+/* Optional subtle zoom effect */
+.blog-card img:hover {
+  transform: scale(1.05);
+}
+
+/* Blog Titles & Text */
 .blog-card h2 {
   font-size: 22px;
   color: #fff;
@@ -108,7 +123,9 @@ body {
   text-align: justify;
 }
 
-/* Blog Details Section */
+/* ===============================
+   BLOG DETAILS SECTION
+================================*/
 #blog-details {
   margin-top: 40px;
   padding: 30px;
@@ -157,6 +174,9 @@ body {
   .blogs {
     gap: 30px;
   }
+  .blog-card img {
+    height: 220px;
+  }
 }
 
 /* Tablets and large phones */
@@ -169,7 +189,7 @@ body {
     gap: 20px;
   }
   .filter-item {
-    font-size: 0.95rem;
+    font-size: 0.70rem;
     padding: 8px 16px;
   }
   .blogs {
@@ -181,37 +201,48 @@ body {
   .blog-card h2 {
     font-size: 20px;
   }
+  .blog-card img {
+    height: 200px;
+  }
 }
 
 /* Small phones */
 @media (max-width: 480px) {
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
+
   .head-section {
-    flex-wrap: nowrap;
-    gap: 8px;
+    flex-wrap: wrap;         /* Allow filters to wrap into multiple lines */
+    gap: 6px;
     padding: 5px;
-    overflow-x: auto;
-    justify-content: center;
-    -webkit-overflow-scrolling: touch;
+    justify-content: center; /* Center align all filters */
   }
+
   .filter-item {
-    font-size: 0.7rem;
-    padding: 6px 10px;
-    white-space: nowrap;
-    flex-shrink: 0;
+    font-size: 0.7rem;       /* Smaller font size */
+    padding: 5px 8px;        /* Reduce padding */
+    border-radius: 20px;
   }
+
   .filter-item.active {
-    padding: 6px 14px;
+    padding: 5px 10px;
   }
+
   .blog-card h2 {
-    font-size: 18px;
+    font-size: 16px;
   }
+
   .blog-card p {
-    font-size: 13px;
+    font-size: 12px;
   }
+
   .blogs {
-    gap: 20px;
+    gap: 15px;
+  }
+
+  .blog-card img {
+    height: 160px;
   }
 }
+
