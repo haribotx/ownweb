@@ -26,6 +26,15 @@
     },
     "Body": {
       "type": "text"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "webapp",
+        "mobileapp",
+        "website",
+        "custom"
+      ]
     }
   }
 }
