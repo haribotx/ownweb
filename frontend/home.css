@@ -52,7 +52,6 @@ body {
   font-size: 1.1rem;
   transition: all 0.3s ease;
   border: 1px solid transparent;
-  cursor: pointer;
 }
 
 .filter-item:hover {
@@ -83,9 +82,8 @@ body {
 
 .filter-item.active {
   color: #ffffff;
-  border-color: #FF34001A;
+  border-color: #fbd8cd1a;
   padding: 10px 40px;
-  box-shadow: 0 0 10px rgba(255,255,255,0.5);
   background-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -113,7 +111,6 @@ body {
 }
 
 .blog-card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 0 15px rgba(255,255,255,0.1);
 }
 
