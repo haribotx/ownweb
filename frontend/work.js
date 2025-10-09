@@ -6,9 +6,12 @@ fetch("http://localhost:1337/api/works?populate=*")
     console.log("works: ", works);
 
     const container = document.getElementById("work-container");
-    container.innerHTML = "";
+    const filterButtons = document.querySelectorAll('.filter-item');
+    
+    function renderWorks(filteredWorks) {
+  container.innerHTML = "";
 
-    works.forEach((work) => {
+    filteredWorks.forEach((work) => {
       // ✅ Fixed structure — direct access, no attributes
       const title = work.Title;
       const body = work.Body || "";
@@ -50,5 +53,29 @@ fetch("http://localhost:1337/api/works?populate=*")
 
       container.appendChild(workCard);
     });
+  }
+  renderWorks(works);
+
+  filterButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // remove active class from all
+    filterButtons.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const category = btn.dataset.category;
+
+    const filtered = works.filter((work) => {
+      return work.category?.toLowerCase() === category.toLowerCase();
+    });
+    if (filtered.length > 0) {
+      renderWorks(filtered);
+    } else {
+      container.innerHTML = `<div class="no-works">
+      <p>Coming Soon....</p>
+    </div>`;
+    }
+  });
+}
+)
   })
   .catch((error) => console.error("Error fetching works:", error));
