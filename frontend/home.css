@@ -27,9 +27,10 @@ body {
 
 /* Filter Section */
 .filter-section {
-  padding: 40px 0;
+  padding: 10px 0;
   text-align: center;
 }
+
 
 .head-section {
   display: flex;
@@ -39,6 +40,7 @@ body {
   gap: 40px;
   padding: 10px;
 }
+
 
 .filter-item {
   padding: 10px 20px;
@@ -52,6 +54,28 @@ body {
 .filter-item:hover {
   background-color: rgba(255, 255, 255, 0.15);
 }
+
+.blogs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* When there's no data, center content */
+.blogs.no-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* adjust as needed */
+  text-align: center;
+}
+
+.no-data {
+  font-size: 1.5rem;
+  color: #777;
+}
+
 
 .filter-item.active {
   color: #ffffff;

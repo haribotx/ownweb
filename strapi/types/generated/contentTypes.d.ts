@@ -442,6 +442,9 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Body: Schema.Attribute.Blocks;
+    category: Schema.Attribute.Enumeration<
+      ['all', 'webapp', 'website', 'custom']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -469,6 +472,9 @@ export interface ApiWorkWork extends Struct.CollectionTypeSchema {
   };
   attributes: {
     Body: Schema.Attribute.Text;
+    category: Schema.Attribute.Enumeration<
+      ['webapp', 'mobileapp', 'website', 'custom']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
