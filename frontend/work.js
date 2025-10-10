@@ -47,7 +47,7 @@ fetch("http://localhost:1337/api/works?populate=*")
          <div class="work-content">
         <h2>${title}</h2>
         <p>${body}</p>
-         <h4 class="work-detailsMore">details more</h4>
+         <h4 class="work-detailsMore">More Details</h4>
          </div>
       `;
 
