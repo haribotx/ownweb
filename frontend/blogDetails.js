@@ -28,7 +28,7 @@ if (!blogId) {
           let imageHTML = "";
           blog.image.forEach((img) => {
             if (img && img.url) {
-              imageHTML += `<img src="${CONFIG.BASE_URL}${img.url}" alt="${blog.Title || "Blog Image"}" style="width:100%; margin-bottom:10px; border-radius:10px;">`;
+              imageHTML += `<img src="${CONFIG.BASE_URL}${img.url}" alt="${blog.Title || "Blog Image"}">`;
             }
           });
           imgContainer.innerHTML = imageHTML;
