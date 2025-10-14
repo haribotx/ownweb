@@ -66,7 +66,7 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?populate=*`)
       filteredBlogs.forEach(blog => {
         const id = blog.id;
         const title = blog.Title || "";
-        const body = blog.Body?.[0]?.children?.[0]?.text || "";
+        const body = blog.Author || "";
         const category = blog.category || "";
 
         // ✅ Handle both single and multiple images
