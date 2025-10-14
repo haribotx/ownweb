@@ -1,5 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const blogId = params.get("id");
+console.log('blogId: ', blogId);
 
 if (!blogId) {
   document.body.innerHTML = "<h2 style='text-align:center;'>No blog selected.</h2>";
@@ -8,6 +9,7 @@ if (!blogId) {
     .then((response) => response.json())
     .then((data) => {
       const blog = data.data && data.data.length > 0 ? data.data[0] : null;
+      console.log('blog: ', blog);
       if (!blog) {
         document.body.innerHTML = "<h2 style='text-align:center;'>Blog not found.</h2>";
         return;
@@ -52,6 +54,7 @@ if (!blogId) {
           //  Convert Rich Text JSON to HTML
           let contentHTML = "";
           const content = section.Contents;
+          console.log('content: ', content);
 
           if (Array.isArray(content)) {
             content.forEach((block) => {
@@ -83,6 +86,7 @@ if (!blogId) {
           } else {
             // Fallback for plain text
             contentHTML = content || "";
+            console.log('contentHTML: ', contentHTML);
           }
 
           div.innerHTML = `
