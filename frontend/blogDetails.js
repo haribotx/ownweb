@@ -20,7 +20,8 @@ if (!blogId) {
       });
 
       const meta = document.getElementById("blog-meta");
-      if (meta) meta.textContent = `// ${authorName} · ${createdAt}`;
+      if (meta) meta.innerHTML = `// <span id="blog-meta-name">${authorName}</span> · ${createdAt}`;
+
 
       const imgContainer = document.querySelector(".blog-image");
       if (imgContainer) {
