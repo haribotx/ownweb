@@ -1,0 +1,169 @@
+/* Reset only for header component */
+.header-component * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Specific Styles - Scoped */
+.header-component .header {
+    position: fixed;
+    top: 16px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.header-component .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    padding: 14px 18px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.header-component .logo {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(90.75deg, #FF4F22 0.62%, #C72800 99.38%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    padding-left: 8px;
+}
+
+.header-component .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 36px;
+}
+
+.header-component .nav-link {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.header-component .nav-link:hover {
+    color: #ffffff;
+    opacity: 1;
+}
+
+/* Layout: keep nav centered between brand and CTA */
+.header-component .nav-menu {
+    margin: 0 auto;
+}
+
+/* ========================= */
+/* Conic Gradient CTA Button */
+/* ========================= */
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.header-component .border-loop-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    min-width: 140px;
+    gap: 8px;
+    padding: 10px 22px;
+    font-size: 14px;
+    color: #fff;
+    background: #000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.header-component .border-loop-btn::before,
+.header-component .border-loop-btn::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -2px;
+    border-radius: 14px;
+    background: conic-gradient(
+        from var(--gradient-angle),
+        #000,
+        #ff4500,
+        #ff8c00,
+        #ffa500,
+        #ff8c00,
+        #ff4500,
+        #000
+    );
+    animation: rotate 4s linear infinite;
+}
+
+.header-component .border-loop-btn::after {
+    filter: blur(10px);
+    opacity: 0.2;
+}
+
+.header-component .border-loop-btn .inner-bg {
+    position: absolute;
+    inset: 2px;
+    background: #000;
+    border-radius: 10px;
+    z-index: -1;
+    transition: background 0.3s ease;
+}
+
+.header-component .border-loop-btn .arrow {
+    font-size: 15px;
+    transition: transform 0.3s ease;
+}
+
+.header-component .border-loop-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+.header-component .border-loop-btn:hover .inner-bg {
+    background: #111;
+}
+
+.header-component .border-loop-btn:hover {
+    box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
+}
+
+@keyframes rotate {
+    0% { --gradient-angle: 0deg; }
+    100% { --gradient-angle: 360deg; }
+}
+
+/* Responsive Design - Header Only */
+@media (max-width: 768px) {
+    .header-component .header-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .header-component .nav-list {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-component .header-container {
+        padding: 0 15px;
+    }
+}
