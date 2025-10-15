@@ -14,9 +14,9 @@
 
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Header -->
   <header>
-    <!-- your existing Webflow navbar code -->
+    <div id="header-placeholder"></div>
   </header>
 
   <!-- Blog Section -->
@@ -29,12 +29,12 @@
     </div>
   </section>
 
-  <section class="filter-section">
+  <section class="">
     <div class="head-section"  id="filter-section">
-      <h2 class="filter-item active" data-category="all">All</h2>
-      <h2 class="filter-item" data-category="webapp">Web App</h2>
-      <h2 class="filter-item " data-category="website">Website</h2>
-      <h2 class="filter-item " data-category="custom">Custom Sas Product</h2>
+      <button class="filter-item active" data-category="all">All</button>
+      <button class="filter-item" data-category="webapp">Web App</button>
+      <button class="filter-item " data-category="website">Website</button>
+      <button class="filter-item" data-category="custom">Custom Sas Product</button>
 
       </div>
     </div>
@@ -65,7 +65,10 @@
 
 </section>
 
+<div id="footer-placeholder"></div>
 
+ <script src="./includeHeader.js"></script>
+  <script src="./includeFooter.js"></script>
 <script src="config.js"></script>
   <script src="blog.js"></script>
 </body>

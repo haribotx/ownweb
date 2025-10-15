@@ -14,11 +14,12 @@ body {
 }
 
 .footer-top {
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
   gap: 30px;
-  margin-bottom: 30px;
-  
+  margin-bottom: 20px;
+  padding-top: 10px; /* optional spacing */
+  border-top: 1px solid #222; /* <-- adds the top grey line */
 }
 
 .footer-left {

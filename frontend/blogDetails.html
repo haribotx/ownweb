@@ -8,9 +8,10 @@
   <link rel="icon" type="image/png" href="/frontend/images/logo.png" />
 </head>
 <body>
+   <div id="header-placeholder"></div>
 
   <div class="blog-container">
-    <p id="blog-meta">// John · Sep 2025</p>
+    <p id="blog-meta">// <span id="blog-meta-name">John</span> · Sep 2025</p>
 
     <div class="blog-image">
       <img src="./images/sample.jpg" alt="UI/UX Preview">
@@ -62,6 +63,10 @@
   </div>
 
   <section class="latest-blogs" id="blog-container"></section>
+  <div id="footer-placeholder"></div>
+  
+   <script src="./includeHeader.js"></script>
+  <script src="./includeFooter.js"></script>
   <script src="config.js"></script>
   <script src="blogDetails.js"></script>
 </body>
