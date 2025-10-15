@@ -16,7 +16,7 @@ body {
   font-size: 58px;
   width: 50%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 115px;
 }
 
 .section-title-span {
@@ -43,18 +43,28 @@ body {
   border-radius: 30px;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
-.filter-item:hover {
+/* .filter-item:hover {
   background-color: rgba(255, 255, 255, 0.15);
-}
+} */
 
 .filter-item.active {
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: #fbd8cd1a;
-  padding: 10px 50px;
+ background-color: #FDFDFD1A;
+  padding: 10px 20px;
+  border-color: white;
+}
+
+.filter-item.active,
+.filter-item-custom.active {
+  color: #ffffff;
+  background-color: #FDFDFD1A;
+  border-color: #FF34001A;
+  border: 1px solid #FF34001A;
+  border-radius: 100px;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255,255,255,0.4);
 }
 
 /* ===== Works Section ===== */
