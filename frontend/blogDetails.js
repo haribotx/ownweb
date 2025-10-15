@@ -31,7 +31,9 @@ if (!blogId) {
           let imageHTML = "";
           blog.image.forEach((img) => {
             if (img && img.url) {
-              imageHTML += `<img src="${CONFIG.BASE_URL}${img.url}" alt="${blog.Title || "Blog Image"}">`;
+              // imageHTML += `<img src="${CONFIG.BASE_URL}${img.url}" alt="${blog.Title || "Blog Image"}">`; // for localhost enable it comment next line
+               imageHTML += `<img src="${img.url}" alt="${blog.Title || "Blog Image"}">`;
+
             }
           });
           imgContainer.innerHTML = imageHTML;

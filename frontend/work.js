@@ -33,7 +33,8 @@ fetch(`${CONFIG.API_BASE_URL}/works?populate=*`)
 
         if (!img) return `${CONFIG.PLACEHOLDER_IMAGE}`;
 
-        if (img.url) return `${CONFIG.BASE_URL}${img.url}`;
+        // if (img.url) return `${CONFIG.BASE_URL}${img.url}`; // For localhost image uncomment this and comment next line.
+        if (img.url) return `${img.url}`; 
         if (img.formats?.small?.url)
           return `${CONFIG.BASE_URL}${img.formats.small.url}`;
         if (img.formats?.thumbnail?.url)

@@ -24,6 +24,12 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?populate=*`)
         const id = blog.id;
         const title = blog.Title || "";
         const body = blog.Author || "";
+        const createdAt = new Date(blog.createdAt).toLocaleString("default", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        });
+
         const category = blog.category || "";
 
         // ✅ Handle both single and multiple images
@@ -37,10 +43,10 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?populate=*`)
 
         // ✅ Get proper URL or fallback
         const imageUrl = imageObj?.url
-          ? `${CONFIG.BASE_URL}${imageObj.url}`
-          : imageObj?.formats?.small?.url
-          ? `${CONFIG.BASE_URL}${imageObj.formats.small.url}`
-          : CONFIG.PLACEHOLDER_IMAGE;;
+        // ? `${CONFIG.BASE_URL}${imageObj.url}`
+        // : imageObj?.formats?.small?.url
+        // ? `${CONFIG.BASE_URL}${imageObj.formats.small.url}`   // uncomment this section if u need to run the images in localhost
+        // : CONFIG.PLACEHOLDER_IMAGE;;
 
         const blogCard = document.createElement('div');
         blogCard.classList.add('blog-card');
@@ -48,9 +54,7 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?populate=*`)
         blogCard.innerHTML = `
           <img src="${imageUrl}" alt="${title}" class="blog-image" data-id="${id}">
           <h2>${title}</h2>
-          <p>${body}</p>
-        `;
-
+         <p>${body} / <span style="color: #FFF7EB80;">${createdAt}</span></p>`;
         container.appendChild(blogCard);
       });
 
