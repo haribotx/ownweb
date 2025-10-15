@@ -1,4 +1,4 @@
-fetch("http://localhost:1337/api/works?populate=*")
+fetch(`${CONFIG.API_BASE_URL}/works?populate=*`)
   .then((response) => response.json())
   .then((data) => {
     console.log("API Response:", data);
@@ -12,7 +12,9 @@ fetch("http://localhost:1337/api/works?populate=*")
   container.innerHTML = "";
 
     filteredWorks.forEach((work) => {
+      console.log('filteredWorks: ', filteredWorks);
       // ✅ Fixed structure — direct access, no attributes
+      const id = work.id;
       const title = work.Title;
       const body = work.Body || "";
       console.log("body: ", body);
@@ -27,16 +29,17 @@ fetch("http://localhost:1337/api/works?populate=*")
       // ✅ Safely access image URL
       const imageUrl = (() => {
         const img = work.image?.[0]; // Get first image from array
+        console.log('img: ', img);
 
-        if (!img) return "https://via.placeholder.com/400x300?text=No+Image";
+        if (!img) return `${CONFIG.PLACEHOLDER_IMAGE}`;
 
-        if (img.url) return `http://localhost:1337${img.url}`;
+        if (img.url) return `${CONFIG.BASE_URL}${img.url}`;
         if (img.formats?.small?.url)
-          return `http://localhost:1337${img.formats.small.url}`;
+          return `${CONFIG.BASE_URL}${img.formats.small.url}`;
         if (img.formats?.thumbnail?.url)
-          return `http://localhost:1337${img.formats.thumbnail.url}`;
+          return `${CONFIG.BASE_URL}${img.formats.thumbnail.url}`;
 
-        return "https://via.placeholder.com/400x300?text=No+Image";
+        return `${CONFIG.PLACEHOLDER_IMAGE}`;
       })();
 
       const workCard = document.createElement("div");
@@ -47,12 +50,22 @@ fetch("http://localhost:1337/api/works?populate=*")
          <div class="work-content">
         <h2>${title}</h2>
         <p>${body}</p>
-         <h4 class="work-detailsMore">More Details</h4>
+         <h4 class="work-detailsMore" data-id="${id}">More Details</h4>
          </div>
       `;
 
       container.appendChild(workCard);
     });
+
+          // ✅ Click → Go to blog.html?id=...
+      document.querySelectorAll('.work-detailsMore').forEach(details => {
+        details.addEventListener('click', (e) => {
+          const workId = e.target.dataset.id;
+          window.location.href = `work-details/index.html?id=${workId}`;
+
+        });
+      });
+  
   }
   renderWorks(works);
 
