@@ -43,14 +43,22 @@ fetch(`${CONFIG.API_BASE_URL}/works?populate=*`)
         return `${CONFIG.PLACEHOLDER_IMAGE}`;
       })();
 
+
       const workCard = document.createElement("div");
       workCard.classList.add("work-card");
 
       workCard.innerHTML = `
-        <img src="${imageUrl}" />
+      <div class="image-container">
+  <img src="${imageUrl}" alt="${title}" class="image-size" />
+  <div class="corner-icon top-left">+</div>
+  <div class="corner-icon top-right">+</div>
+  <div class="corner-icon bottom-left">+</div>
+  <div class="corner-icon bottom-right">+</div>
+</div>
+
          <div class="work-content">
-        <h2>${title}</h2>
-        <p>${body}</p>
+        <h2 class="strapi-title">${title}</h2>
+        <p class="strapi-body">${body}</p>
          <h4 class="work-detailsMore" data-id="${id}">More Details</h4>
          </div>
       `;
