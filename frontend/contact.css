@@ -14,6 +14,8 @@ body {
   justify-content: center;
   position: relative;
   z-index: 1;
+  margin-top: 130px;
+  max-width: 90%;
 }
 
 .contact-paragraph {
@@ -39,20 +41,25 @@ body {
   letter-spacing: 0.02em;
 }
 
-.grid-container {
+.contact-grid-container {
   display: grid;
   grid-template-columns: repeat(4, 72px);
   grid-template-rows: repeat(1, 72px);
-  gap: 15px;
+  gap: 25px;
   display: flex;
   justify-content: center;
   position: relative;
   z-index: 1;
 }
 
-.grid-item-icon {
-  background-color: #40404080;
+.contact-grid-item-icon {
+  background-color: rgba(21, 21, 21, 1);
   padding: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon {
@@ -63,7 +70,7 @@ body {
   fill: none;
 }
 
-.grid-item:hover {
+.contact-grid-item-icon:hover {
   background: #1a1a1a;
 }
 
@@ -155,12 +162,10 @@ textarea:focus {
   height: 6px;
   background: linear-gradient(to right, transparent, #ff6600, transparent);
   border-radius: 10px;
-  /* filter: blur(3px); */
   opacity: 0.9;
   pointer-events: none;
   z-index: 15; 
 }
-
 
 .btn:hover {
   background: linear-gradient(to right, #ff6347, #ff4500);
@@ -173,8 +178,6 @@ textarea:focus {
   top: 100%;
   width: 100%;
   height: 4px;
-  /* background: orangered; */
-  /* box-shadow: 0 0 10px orangered, 0 0 20px orangered; */
   transition: top 0.3s ease;
   z-index: 14;
 }
