@@ -249,6 +249,10 @@ border-radius: 100px;
   .blog-card img {
     height: 200px;
   }
+
+    .container {
+    margin-top: 60px;
+  }
 }
 
 /* Small phones */
@@ -288,6 +292,10 @@ border-radius: 100px;
 
   .blog-card img {
     height: 160px;
+  }
+
+  .container {
+    margin-top: 60px;
   }
 }
 
