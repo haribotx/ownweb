@@ -1409,6 +1409,14 @@ html {
     box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
 }
 
+/* ===== Fix for Overview Text Wrapping ===== */
+.description-text {
+  white-space: pre-wrap;        /* keep line breaks and wrap long lines */
+  word-wrap: break-word;        /* break very long words if needed */
+  overflow-wrap: break-word;    /* ensure wrapping even for unbroken strings */
+  line-height: 1.6;             /* improve readability */
+}
+
 @keyframes rotate {
     0% { --gradient-angle: 0deg; }
     100% { --gradient-angle: 360deg; }

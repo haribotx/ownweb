@@ -67,13 +67,13 @@ fetch(`${CONFIG.API_BASE_URL}/works?populate=*`)
     });
 
           // ✅ Click → Go to blog.html?id=...
-      document.querySelectorAll('.work-detailsMore').forEach(details => {
-        details.addEventListener('click', (e) => {
-          const workId = e.target.dataset.id;
-          window.location.href = `work-details/index.html?id=${workId}`;
+     document.querySelectorAll('.work-detailsMore').forEach(details => {
+  details.addEventListener('click', (e) => {
+    const workId = e.target.dataset.id;
+    window.location.href = `work-details/index.html?id=${workId}`;
+  });
+});
 
-        });
-      });
   
   }
   renderWorks(works);
