@@ -680,7 +680,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const title = item.Title || "Untitled";
         const client = item.client || "Unknown";
         const type = item.category || "N/A";
-        const role = "Design and Development";
+        const role = item.role || "Design and Developmen";
         const completed = item.completed || "N/A";
 
         // ✅ Handle image safely
