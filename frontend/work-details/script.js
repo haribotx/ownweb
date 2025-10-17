@@ -1,5 +1,76 @@
-// Work Details Page JavaScript
+// ✅ Get ID from URL
+const urlParams = new URLSearchParams(window.location.search);
+const workId = urlParams.get("id");
 
+if (!workId) {
+  console.warn("⚠️ No work ID found in URL");
+} else {
+  fetch(`${CONFIG.API_BASE_URL}/works?filters[id][$eq]=${workId}&populate=*`)
+    .then((res) => res.json())
+    .then((response) => {
+      console.log("Work Details Response:", response);
+
+      const work = response.data?.[0];
+      if (!work) {
+        console.warn("⚠️ No work found for this ID");
+        return;
+      }
+
+      // --- IMAGE HANDLING (✅ FIXED FOR YOUR CASE) ---
+      const img = work.image?.[0];
+      if (img?.url) {
+        const imageUrl = img.url.startsWith("http")
+          ? img.url
+          : `${CONFIG.BASE_URL}${img.url}`;
+        const projectImage = document.querySelector(".project-image");
+        if (projectImage) {
+          projectImage.src = imageUrl;
+          projectImage.alt = work.Title || "Project Image";
+        }
+      } else {
+        console.warn("⚠️ No image found for this work");
+      }
+
+      // --- OVERVIEW CONTENT ---
+      let overviewText = "";
+      if (work.overview && Array.isArray(work.overview)) {
+        overviewText = work.overview
+          .map((block) =>
+            block.children?.map((child) => child.text || "").join(" ")
+          )
+          .join("\n\n");
+      }
+
+      if (!overviewText && work.Body) overviewText = work.Body;
+
+      const descEls = document.querySelectorAll(".description-text");
+      if (descEls[0]) descEls[0].textContent = overviewText;
+
+      // --- STATIC TITLE ---
+      const titleEl = document.querySelector(".overview-title");
+      if (titleEl) titleEl.textContent = "Overview"; // You said only "Overview"
+
+      // --- DETAILS (Year, Client, Category) ---
+      const completedDate = work.completed || "";
+      const year = completedDate ? completedDate.split("-")[2] || "" : "";
+      const client = work.client || "Unknown Client";
+      const services = work.category || "Not specified";
+
+      const detailRows = document.querySelectorAll(".project-details .detail-row");
+      if (detailRows.length >= 3) {
+        detailRows[0].querySelector(".detail-value").textContent = year;
+        detailRows[1].querySelector(".detail-value").textContent = client;
+        detailRows[2].querySelector(".detail-value").textContent = services;
+      }
+    })
+    .catch((err) => console.error("Error fetching work details:", err));
+}
+
+
+
+
+
+  //og code
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initFilterButtons();
@@ -570,3 +641,119 @@ function initAnimatedText() {
     // Initial check
     handleScroll();
 }
+
+
+
+//
+
+//  Fetch and Display Latest Two Works (Corrected for Flat Structure)
+// ✅ Fetch and Display Latest Two Works (Excluding the Current One)
+document.addEventListener("DOMContentLoaded", () => {
+  const projectContainer = document.querySelector(".project-details-container");
+  if (!projectContainer) return;
+
+  // ✅ Get current work ID from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentWorkId = urlParams.get("id");
+
+  // ✅ Build query to exclude current work
+  const excludeFilter = currentWorkId
+    ? `&filters[id][$ne]=${currentWorkId}` // exclude same work
+    : "";
+
+  fetch(
+    `${CONFIG.API_BASE_URL}/works?populate=*&sort=createdAt:desc&pagination[limit]=2${excludeFilter}`
+  )
+    .then((res) => res.json())
+    .then((response) => {
+      console.log(" Latest Works Response:", response);
+
+      const works = response.data || [];
+      if (works.length === 0) {
+        projectContainer.innerHTML = `<p style="color:#fff; text-align:center;">No other works found.</p>`;
+        return;
+      }
+
+      projectContainer.innerHTML = "";
+
+      works.forEach((item, index) => {
+        const title = item.Title || "Untitled";
+        const client = item.client || "Unknown";
+        const type = item.category || "N/A";
+        const role = "Design and Development";
+        const completed = item.completed || "N/A";
+
+        // ✅ Handle image safely
+        let imageUrl = "../images/placeholder.png";
+        if (Array.isArray(item.image) && item.image.length > 0) {
+          const imgObj = item.image[0];
+          if (imgObj?.url) {
+            imageUrl = imgObj.url.startsWith("http")
+              ? imgObj.url
+              : `${CONFIG.BASE_URL}${imgObj.url}`;
+          } else if (imgObj?.documentId) {
+            imageUrl = `${CONFIG.BASE_URL}/uploads/${imgObj.documentId}.jpg`;
+          }
+        }
+
+        // Alternate layout
+        const isEven = index % 2 === 1;
+        const cardClass = isEven
+          ? "project-card-calva"
+          : "project-card-luximatch";
+
+        const cardHTML = `
+          <div class="${cardClass}">
+            ${isEven
+              ? `
+              <div class="card-details-area">
+                <div class="project-info">
+                  <p class="selected-work-label">Selected work</p>
+                  <h3 class="project-name">${title}</h3>
+                  <div class="detail-item"><span class="detail-label">Client</span><span class="detail-value">${client}</span></div>
+                  <div class="detail-item"><span class="detail-label">Type</span><span class="detail-value">${type}</span></div>
+                  <div class="detail-item"><span class="detail-label">Role</span><span class="detail-value">${role}</span></div>
+                  <div class="detail-item"><span class="detail-label">Completed</span><span class="detail-value">${completed}</span></div>
+                </div>
+              </div>
+              <div class="card-visual-area">
+                <div class="card-background-image" onclick="window.location.href='index.html?id=${item.id}'" style="cursor:pointer;">
+                  <img src="${imageUrl}" alt="${title} Background" class="background-img">
+                </div>
+                <span class="plus-icon plus-top-left"></span>
+                <span class="plus-icon plus-top-right"></span>
+                <span class="plus-icon plus-bottom-left"></span>
+                <span class="plus-icon plus-bottom-right"></span>
+              </div>`
+              : `
+              <div class="card-visual-area">
+                <div class="card-background-image" onclick="window.location.href='index.html?id=${item.id}'" style="cursor:pointer;">
+                  <img src="${imageUrl}" alt="${title} Background" class="background-img">
+                </div>
+                <span class="plus-icon plus-top-left"></span>
+                <span class="plus-icon plus-top-right"></span>
+                <span class="plus-icon plus-bottom-left"></span>
+                <span class="plus-icon plus-bottom-right"></span>
+              </div>
+              <div class="card-details-area">
+                <div class="project-info">
+                  <p class="selected-work-label">Selected work</p>
+                  <h3 class="project-name">${title}</h3>
+                  <div class="detail-item"><span class="detail-label">Client</span><span class="detail-value">${client}</span></div>
+                  <div class="detail-item"><span class="detail-label">Type</span><span class="detail-value">${type}</span></div>
+                  <div class="detail-item"><span class="detail-label">Role</span><span class="detail-value">${role}</span></div>
+                  <div class="detail-item"><span class="detail-label">Completed</span><span class="detail-value">${completed}</span></div>
+                </div>
+              </div>`}
+          </div>
+        `;
+
+        projectContainer.insertAdjacentHTML("beforeend", cardHTML);
+      });
+    })
+    .catch((err) => {
+      console.error("❌ Error fetching latest works:", err);
+      projectContainer.innerHTML = `<p style="color:#fff; text-align:center;">Error fetching works.</p>`;
+    });
+});
+
