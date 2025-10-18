@@ -677,7 +677,7 @@ document.addEventListener("DOMContentLoaded", () => {
       projectContainer.innerHTML = "";
 
       works.forEach((item, index) => {
-        const title = item.Title || "Untitled";
+        const title = item.workName || "Untitled";
         const client = item.client || "Unknown";
         const type = item.category || "N/A";
         const role = item.role || "Design and Developmen";
