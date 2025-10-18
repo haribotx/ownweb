@@ -717,7 +717,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
               </div>
               <div class="card-visual-area">
-                <div class="card-background-image" onclick="window.location.href='index.html?id=${item.id}'" style="cursor:pointer;">
+                <div class="card-background-image" onclick="window.location.href='workDetails.html?id=${item.id}'" style="cursor:pointer;">
                   <img src="${imageUrl}" alt="${title} Background" class="background-img">
                 </div>
                 <span class="plus-icon plus-top-left"></span>
@@ -727,7 +727,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>`
               : `
               <div class="card-visual-area">
-                <div class="card-background-image" onclick="window.location.href='index.html?id=${item.id}'" style="cursor:pointer;">
+                <div class="card-background-image" onclick="window.location.href='workDetails.html?id=${item.id}'" style="cursor:pointer;">
                   <img src="${imageUrl}" alt="${title} Background" class="background-img">
                 </div>
                 <span class="plus-icon plus-top-left"></span>
