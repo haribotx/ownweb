@@ -66,11 +66,11 @@ fetch(`${CONFIG.API_BASE_URL}/works?populate=*`)
       container.appendChild(workCard);
     });
 
-          // ✅ Click → Go to blog.html?id=...
+          // ✅ Click → Go to work.html?id=...
      document.querySelectorAll('.work-detailsMore').forEach(details => {
   details.addEventListener('click', (e) => {
     const workId = e.target.dataset.id;
-    window.location.href = `work-details/index.html?id=${workId}`;
+    window.location.href = `workDetails.html?id=${workId}`;
   });
 });
 
