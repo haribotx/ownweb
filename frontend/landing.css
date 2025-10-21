@@ -38,7 +38,8 @@ background-position: center;
 
 .width-paragraph {
      color: #fff7eb80;
-  width: 521px;
+  max-width: 521px;
+width: auto;
   margin-top: 0;
   margin-bottom: 0;
   padding-right: 0;
@@ -47,6 +48,7 @@ background-position: center;
   font-weight: 400;
   line-height: 100%;
   text-decoration: none;
+  
 }
 
 .frame-2147235658 {
@@ -105,44 +107,40 @@ background-position: center;
 }
 
 .scroll-section {
-  padding-top: 100px;
-  overflow: hidden;
   position: relative;
-  /* background: #000;  */
+  overflow: hidden;
 }
 
 .bar {
   display: flex;
-  width: 200%;
-  animation: scroll 10s linear infinite;
+  overflow: hidden;
+   background: linear-gradient(to right, rgba(21, 1, 1, 0) 70%, rgba(55, 53, 53, 0.4) 50%);
 }
 
 .bar-track {
   display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  gap: 80px; /* space between each brand */
+  animation: scroll 25s linear infinite;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 15px;
-}
-
-.brand-image {
-  width: 140px; /* main brand image */
-  height: 80px;
-  object-fit: contain;
+  gap: 10px;
+  padding: 0 40px;
 }
 
 .brand-icon {
-  width: 50px; /* smaller icon beside image */
+  width: 50px;
   height: 50px;
   object-fit: contain;
 }
 
-/* Animation for infinite horizontal scroll */
+.brand-image {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+}
+
 @keyframes scroll {
   from {
     transform: translateX(0);
@@ -153,9 +151,10 @@ background-position: center;
 }
 
 
+
 .text-5 {
   color: #fff7eb80;
-  width: 100%;
+  width: auto;
   margin-top: 0;
   margin-bottom: 0;
   font-family: Manrope, sans-serif;
@@ -163,4 +162,5 @@ background-position: center;
   font-weight: 400;
   line-height: 100%;
   text-decoration: none;
+  padding: 40px 0px 40px 0px;
 }
