@@ -1,4 +1,3 @@
-// Header JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize header functionality

@@ -1,4 +1,4 @@
-// ✅ Get ID from URL
+//  Get ID from URL
 const urlParams = new URLSearchParams(window.location.search);
 const workId = urlParams.get("id");
 
@@ -8,7 +8,6 @@ if (!workId) {
   fetch(`${CONFIG.API_BASE_URL}/works?filters[id][$eq]=${workId}&populate=*`)
     .then((res) => res.json())
     .then((response) => {
-      console.log("Work Details Response:", response);
 
       const work = response.data?.[0];
       if (!work) {
@@ -16,7 +15,7 @@ if (!workId) {
         return;
       }
 
-      // --- IMAGE HANDLING (✅ FIXED FOR YOUR CASE) ---
+      // --- IMAGE HANDLING ( FIXED FOR YOUR CASE) ---
       const img = work.image?.[0];
       if (img?.url) {
         const imageUrl = img.url.startsWith("http")
@@ -647,16 +646,16 @@ function initAnimatedText() {
 //
 
 //  Fetch and Display Latest Two Works (Corrected for Flat Structure)
-// ✅ Fetch and Display Latest Two Works (Excluding the Current One)
+//  Fetch and Display Latest Two Works (Excluding the Current One)
 document.addEventListener("DOMContentLoaded", () => {
   const projectContainer = document.querySelector(".project-details-container");
   if (!projectContainer) return;
 
-  // ✅ Get current work ID from URL
+  //  Get current work ID from URL
   const urlParams = new URLSearchParams(window.location.search);
   const currentWorkId = urlParams.get("id");
 
-  // ✅ Build query to exclude current work
+  //  Build query to exclude current work
   const excludeFilter = currentWorkId
     ? `&filters[id][$ne]=${currentWorkId}` // exclude same work
     : "";
@@ -666,7 +665,6 @@ document.addEventListener("DOMContentLoaded", () => {
   )
     .then((res) => res.json())
     .then((response) => {
-      console.log(" Latest Works Response:", response);
 
       const works = response.data || [];
       if (works.length === 0) {
@@ -683,7 +681,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const role = item.role || "Design and Developmen";
         const completed = item.completed || "N/A";
 
-        // ✅ Handle image safely
+        // Handle image safely
         let imageUrl = "../images/placeholder.png";
         if (Array.isArray(item.image) && item.image.length > 0) {
           const imgObj = item.image[0];
@@ -752,7 +750,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     })
     .catch((err) => {
-      console.error("❌ Error fetching latest works:", err);
+      console.error(" Error fetching latest works:", err);
       projectContainer.innerHTML = `<p style="color:#fff; text-align:center;">Error fetching works.</p>`;
     });
 });

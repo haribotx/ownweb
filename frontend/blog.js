@@ -1,14 +1,12 @@
 fetch(`${CONFIG.API_BASE_URL}/blogs?populate=*`)
   .then(response => response.json())
   .then(data => {
-    console.log('API Response:', data);
     const blogs = data.data;
-    console.log('blogs: ', blogs);
 
     const container = document.getElementById('blog-container');
     const filterButtons = document.querySelectorAll('.filter-item');
 
-    // ✅ Function to render blogs
+    //  Function to render blogs
     function renderBlogs(filteredBlogs) {
       container.innerHTML = '';
 
@@ -32,7 +30,6 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?populate=*`)
 
         const category = blog.category || "";
 
-        // ✅ Handle both single and multiple images
         let imageObj = null;
 
         if (Array.isArray(blog.image) && blog.image.length > 0) {
@@ -41,7 +38,7 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?populate=*`)
           imageObj = blog.image; // single image
         }
 
-        // ✅ Get proper URL or fallback
+        //  Get proper URL or fallback
         const imageUrl = imageObj?.url
         // ? `${CONFIG.BASE_URL}${imageObj.url}`
         // : imageObj?.formats?.small?.url
@@ -58,7 +55,7 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?populate=*`)
         container.appendChild(blogCard);
       });
 
-      // ✅ Click → Go to blog.html?id=...
+    
       document.querySelectorAll('.blog-image').forEach(img => {
         img.addEventListener('click', (e) => {
           const blogId = e.target.dataset.id;
@@ -67,10 +64,10 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?populate=*`)
       });
     }
 
-    // ✅ Initially show all blogs
+   
     renderBlogs(blogs);
 
-    // ✅ Filter button logic
+    // Filter button logic
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         const category = btn.dataset.category;
