@@ -1,9 +1,7 @@
-// includeFooter.js
 document.addEventListener("DOMContentLoaded", () => {
   const placeholder = document.getElementById("footer-placeholder");
   if (!placeholder) return;
 
-  // Resolve footer.html relative to the current page
   const footerUrl = new URL("footer.html", window.location.href).href;
 
   fetch(footerUrl)

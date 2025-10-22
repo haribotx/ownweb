@@ -1,9 +1,7 @@
 fetch(`${CONFIG.API_BASE_URL}/works?populate=*`)
   .then((response) => response.json())
   .then((data) => {
-    console.log("API Response:", data);
     const works = data.data;
-    console.log("works: ", works);
 
     const container = document.getElementById("work-container");
     const filterButtons = document.querySelectorAll('.filter-item');
@@ -12,21 +10,19 @@ fetch(`${CONFIG.API_BASE_URL}/works?populate=*`)
   container.innerHTML = "";
 
     filteredWorks.forEach((work) => {
-      console.log('filteredWorks: ', filteredWorks);
-      // ✅ Fixed structure — direct access, no attributes
+      //  Fixed structure — direct access, no attributes
       const id = work.id;
       const title = work.Title;
       const body = work.Body || "";
-      console.log("body: ", body);
 
-      // ✅ Correct - image is an array, so access first element
+      //  Correct - image is an array, so access first element
       // const imageUrl = work.image?.[0]?.url
       //   ? `http://localhost:1337${work.image[0].url}`
       //   : work.image?.[0]?.formats?.small?.url
       //     ? `http://localhost:1337${work.image[0].formats.small.url}`
       //     : 'https://via.placeholder.com/400x300?text=No+Image';
 
-      // ✅ Safely access image URL
+      //  Safely access image URL
       const imageUrl = (() => {
         const img = work.image?.[0]; // Get first image from array
         console.log('img: ', img);
@@ -66,7 +62,7 @@ fetch(`${CONFIG.API_BASE_URL}/works?populate=*`)
       container.appendChild(workCard);
     });
 
-          // ✅ Click → Go to work.html?id=...
+          // Click → Go to work.html?id=...
      document.querySelectorAll('.work-detailsMore').forEach(details => {
   details.addEventListener('click', (e) => {
     const workId = e.target.dataset.id;
