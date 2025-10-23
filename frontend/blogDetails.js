@@ -131,7 +131,8 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?sort=createdAt:desc&pagination[limit]=3&popu
 
       let imageUrl = "./images/logo.png";
       if (blog.image && blog.image.length > 0 && blog.image[0].url) {
-        imageUrl = `${CONFIG.BASE_URL}${blog.image[0].url}`;
+        // imageUrl = `${CONFIG.BASE_URL}${blog.image[0].url}`;
+        imageUrl = `${blog.image[0].url}`;
       }
 
       cardsHTML += `
