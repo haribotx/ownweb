@@ -21,7 +21,8 @@ function fetchCarouselData() {
                   const name = item.name || "Unnamed Project"; // Direct name field
                   const imageObj = item.image?.data?.attributes || item.image; // Handle nested or direct image
                   const imageUrl = imageObj?.url
-                      ? `${CONFIG.BASE_URL}${imageObj.url}`
+                    //   ? `${CONFIG.API_BASE_URL}${imageObj.url}` // for localhost
+                    ? `${imageObj.url}`                            //for hosted version
                       : CONFIG.PLACEHOLDER_IMAGE;
                   console.log("Project:", { name, imageUrl });
                   return { name, image: imageUrl };
@@ -366,26 +367,25 @@ fetch(`${CONFIG.API_BASE_URL}/homepages?populate=*`)
     container.innerHTML = ""; // Clear previous content
 
     homepages.forEach((item) => {
+        console.log('item: ', item);
       const name = item.name || "";
+      let iconUrl = "";
 
-      // Separate icon and image from same array based on file type
-      const iconObj = item.image?.find((img) =>
-        img.ext === ".png" || img.mime === "image/png"
-      );
-      const imageObj = item.image?.find((img) =>
-        img.ext === ".svg" || img.mime === "image/svg+xml"
-      );
-
-      const iconUrl = iconObj?.url ? `${CONFIG.BASE_URL}${iconObj.url}` : "";
-      const imageUrl = imageObj?.url ? `${CONFIG.BASE_URL}${imageObj.url}` : "";
+      // Find the icon (PNG file)
+      if (item.image && Array.isArray(item.image)) {
+        const iconObj = item.image.find((img) =>
+          img.ext === ".png" || img.mime === "image/png"
+        );
+        iconUrl = iconObj?.url ? `${iconObj.url}` : "";
+      }
 
       // Create brand container
       const brandDiv = document.createElement("div");
       brandDiv.classList.add("brand");
 
       brandDiv.innerHTML = `
-        <img src="${iconUrl}" alt="${name} Icon" class="brand-icon" />
-        <img src="${imageUrl}" alt="${name} Image" class="brand-image" />
+        ${iconUrl ? `<img src="${iconUrl}" alt="${name} Icon" class="brand-icon" />` : ''}
+        <div class="brand-name">${name}</div>
       `;
 
       container.appendChild(brandDiv);
