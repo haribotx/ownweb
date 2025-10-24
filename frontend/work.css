@@ -1,6 +1,10 @@
 /* ===== Global Styles ===== */
 body {
-  background-color: black;
+  /* background-color: black; */
+   background-image: url(./images/group-202147234221.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   padding: 0;
   margin: 0;
   font-family: 'Inter', Arial, sans-serif;
@@ -29,6 +33,9 @@ body::before {
   margin-top: 130px;
   position: relative;
   z-index: 1;
+  background-image: url(./images/workBg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .filter-section,

@@ -3,14 +3,20 @@ body {
   padding: 10px;
   font-family: 'Inter', Arial, sans-serif;
   margin: 0;
+
 }
+
+
 
 
 .site-footer {
   color: #fff;
   padding: 40px 40px;
   font-family: Arial, sans-serif;
-  
+     /* background-image: url(./images/FrameLeft.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left; */
 }
 
 .footer-top {
