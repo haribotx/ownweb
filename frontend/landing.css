@@ -502,7 +502,9 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 25%; /* adjust between 30–50% depending on the image */
 }
+
 
 /* Testimonial Cards */
 .testimonial-cards {
@@ -600,10 +602,10 @@ body {
 }
 
 .author-info h4 {
-  font-size: 18px;
-  margin-bottom: 5px;
-  font-weight: 500;
-  color: white;
+    font-size: 18px;
+    margin-bottom: -10px;
+    font-weight: 500;
+    color: white;
 }
 
 .author-info p {
