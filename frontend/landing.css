@@ -1,5 +1,6 @@
 body {
-  background-image: url(./images/group-202147234221.png);
+  /* background-image: url(./images/group-202147234221.png); */
+  background-image: url(./images/landingpage.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -8,8 +9,12 @@ body {
 .start-page {
   color: white;
   padding-top: 80px;
-  padding-left: 18px;
+  /* padding-left: 18px; */
 }
+.text-and-button{
+  padding: 50px;
+}
+
 
 .title-span1 {
   color: #df5a1c;
@@ -57,7 +62,11 @@ body {
   align-items: center;
   text-decoration: none;
   display: flex;
-  padding-top: 10px;
+  padding-top: 20px;
+}
+
+.ourclients{
+  padding: 50px;
 }
 
 .div-block {
@@ -110,12 +119,12 @@ body {
 .bar {
   display: flex;
   overflow: hidden;
-  background: linear-gradient(to right, rgba(21, 1, 1, 0) 70%, rgba(55, 53, 53, 0.4) 50%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000000 89.9%);
 }
 
 .bar-track {
   display: flex;
-  animation: scroll 25s linear infinite;
+  animation: scroll 6s linear infinite;
 }
 
 .brand {
@@ -123,27 +132,43 @@ body {
   align-items: center;
   gap: 10px;
   padding: 0 40px;
+  color: #737373;
+
 }
 
 .brand-icon {
   width: 50px;
   height: 50px;
   object-fit: contain;
+  color: #737373;
 }
 
 .brand-image {
   width: 120px;
   height: auto;
   object-fit: contain;
+   color: #737373;
+}
+
+.brand-name {
+   color: #737373;
+font-family: 'Poppins', 'Montserrat', 'Nunito', sans-serif;
+  font-weight: 500;
+  font-size: 64px; /* adjust based on your section */
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  display: inline-block;
+  line-height: 1.2;
+  transition: all 0.3s ease;
 }
 
 @keyframes scroll {
   from {
-    transform: translateX(0);
+    transform: translateX(200%);
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 
@@ -157,9 +182,58 @@ body {
   font-weight: 400;
   line-height: 100%;
   text-decoration: none;
+  padding-bottom: 20px;
 }
 
-/* Background grid lines for main sections */
+
+/* service section */
+
+.service-section{
+  width: auto;
+  height: 885px;
+  background-image: url(./images/serviceBg.jpg);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.service-text {
+  width: 647px;
+}
+.service-h5{
+  font-family: 'Inter', sans-serif;
+font-weight: 400;
+font-style: normal;
+font-size: 20px;
+line-height: 100%;
+letter-spacing: 0;
+text-align: center;
+color: #000;
+}
+
+.service-paragraph {
+font-family: 'Helvetica Now Display', sans-serif;
+font-weight: 500;
+font-style: normal;
+font-size: 56px;
+line-height: 90%;
+letter-spacing: 2%;
+text-align: center;
+color: #000000;
+}
+
+.service-paragraph-span {
+font-family: 'Helvetica Now Display', sans-serif;
+font-weight: 500;         
+font-style: normal;       
+font-size: 56px;
+line-height: 0.9;         
+letter-spacing: 0.02em;   
+text-align: center;
+color: #DF5A1C;
+
+}
+
 .background-grid {
   position: fixed;
   top: 0;
@@ -188,7 +262,7 @@ body {
   position: relative;
   z-index: 1;
   padding: 100px 20px 60px;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
 }
 

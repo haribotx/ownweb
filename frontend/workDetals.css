@@ -11,6 +11,9 @@ body {
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
+    background-image: url(./images/workDetailsBg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -393,14 +396,14 @@ body {
     position: relative;
     width: 100%;
     /* padding: 80px 150px; */
-    background-color: #000000;
+    /* background-color: #000000; */
     z-index: 10;
 }
 
 .overview-container {
     position: relative;
     width: 100%;
-    max-width: 1400px;
+    /* max-width: 1400px; */
     margin: 0 auto;
     padding: 0 56px;
     display: flex;
@@ -526,7 +529,7 @@ justify-content: space-between;
     position: relative;
     width: 100%;
     padding: 80px 0;
-    background-color: #000000;
+    /* background-color: #000000; */
     z-index: 10;
 }
 
