@@ -329,7 +329,6 @@ body::before {
 /* ===== Ensure Content Stays Above Lines ===== */
 main,
 section,
-header,
 footer,
 .container,
 .content-wrapper {
