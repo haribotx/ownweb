@@ -1,4 +1,7 @@
-let carouselData = []; // Dynamic data will be fetched from Strapi
+let carouselData = []; 
+let testimonials = []; 
+let currentCarouselIndex = 0;
+let currentTestimonialIndex = 0;
 
 function fetchCarouselData() {
     fetch(`${CONFIG.API_BASE_URL}/projects?populate=*`)
@@ -9,7 +12,6 @@ function fetchCarouselData() {
           return response.json();
       })
       .then(data => {
-          console.log("Project API Response:", data);
 
           const items = data.data || [];
           if (!Array.isArray(items)) {
@@ -17,7 +19,6 @@ function fetchCarouselData() {
               carouselData = [{ name: "No Projects", image: CONFIG.PLACEHOLDER_IMAGE }];
           } else {
               carouselData = items.map(item => {
-                  console.log("Processing item:", item);
                   const name = item.name || "Unnamed Project"; // Direct name field
                   const imageObj = item.image?.data?.attributes || item.image; // Handle nested or direct image
                   const imageUrl = imageObj?.url
@@ -43,48 +44,49 @@ function fetchCarouselData() {
       });
 }
 
-
-const testimonials = [
-    {
-        name: 'Emma Thompson',
-        role: 'Marketing Director',
-        text: 'Emma Thompson, Marketing Director Transformed our website with stunning visuals and smooth functionality, doubling user engagement.',
-        avatarImage: 'https://img.freepik.com/free-photo/portrait-handsome-smiling-stylish-hipster-lambersexual-model-sexy-man-dressed-tshirt-jeans-fashion-male-isolated-blue-wall-studio_158538-26731.jpg' // New: Path to Emma's image
-    },
-    {
-        name: 'James Wilson',
-        role: 'CEO',
-        text: 'Outstanding work! The team delivered beyond our expectations. Our digital presence has never been stronger.',
-        avatarImage: 'https://img.freepik.com/free-photo/portrait-handsome-smiling-stylish-hipster-lambersexual-model-sexy-man-dressed-tshirt-jeans-fashion-male-isolated-blue-wall-studio_158538-26731.jpg'
-    },
-    {
-        name: 'Sarah Chen',
-        role: 'Product Manager',
-        text: 'Incredible attention to detail and user experience. The platform they built is intuitive and performs flawlessly.',
-        avatarImage: 'https://img.freepik.com/free-photo/portrait-handsome-smiling-stylish-hipster-lambersexual-model-sexy-man-dressed-tshirt-jeans-fashion-male-isolated-blue-wall-studio_158538-26731.jpg'
-    },
-    {
-        name: 'Michael Brown',
-        role: 'CTO',
-        text: 'The technical expertise and creative solutions provided were exceptional. Highly recommend their services.',
-        avatarImage: 'https://img.freepik.com/free-photo/portrait-handsome-smiling-stylish-hipster-lambersexual-model-sexy-man-dressed-tshirt-jeans-fashion-male-isolated-blue-wall-studio_158538-26731.jpg'
-    },
-    {
-        name: 'Lisa Anderson',
-        role: 'Design Lead',
-        text: 'Beautiful design meets powerful functionality. Our customers love the new experience.',
-        avatarImage: 'https://img.freepik.com/free-photo/portrait-handsome-smiling-stylish-hipster-lambersexual-model-sexy-man-dressed-tshirt-jeans-fashion-male-isolated-blue-wall-studio_158538-26731.jpg'
-    },
-    {
-        name: 'David Martinez',
-        role: 'Operations Manager',
-        text: 'Professional, efficient, and results-driven. They transformed our vision into reality seamlessly.',
-        avatarImage: 'https://img.freepik.com/free-photo/portrait-handsome-smiling-stylish-hipster-lambersexual-model-sexy-man-dressed-tshirt-jeans-fashion-male-isolated-blue-wall-studio_158538-26731.jpg'
-    }
-];
-
-let currentCarouselIndex = 0;
-let currentTestimonialIndex = 0;
+// Fetch testimonials from Strapi
+function fetchTestimonials() {
+    return fetch(`${CONFIG.API_BASE_URL}/testimonials?populate=*`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {            
+            const items = data.data || [];
+            if (!Array.isArray(items)) {
+                console.error("Expected testimonials data.data to be an array, got:", data.data);
+                testimonials = [];
+            } else {
+                testimonials = items.map(item => {
+                    
+                    // Extract data directly from item (not attributes)
+                    const name = item.name || "Anonymous";
+                    const role = item.designation || "Client";
+                    const text = item.feedback || "No testimonial text available.";
+                    
+                    // Handle avatar image - your image is directly on item.image
+                    let avatarImage = 'https://img.freepik.com/free-photo/portrait-handsome-smiling-stylish-hipster-lambersexual-model-sexy-man-dressed-tshirt-jeans-fashion-male-isolated-blue-wall-studio_158538-26731.jpg'; // Default fallback
+                    
+                    if (item.image && item.image.url) {
+                        // Construct full URL for the image
+                        // avatarImage = `${CONFIG.BASE_URL}${item.image.url}`;  //for localhost
+                        avatarImage = `${item.image.url}`;   // for hosted version
+                    }
+                    
+                    return { name, role, text, avatarImage };
+                });
+            }
+            
+            return testimonials;
+        })
+        .catch(err => {
+            console.error("Error fetching testimonials:", err);
+            testimonials = [];
+            return [];
+        });
+}
 
 // Generate background grid
 function generateGrid() {
@@ -111,12 +113,9 @@ function generateGrid() {
 }
 
 // Carousel functions
-// ... (Keep the original carouselData and testimonials arrays) ...
-
-// Carousel functions
 function updateCarousel() {
     const content = document.getElementById('carouselContent');
-    const brandName = document.getElementById('carouselBrandName'); // Still targets by ID
+    const brandName = document.getElementById('carouselBrandName');
     
     if (!content || !brandName) return;
 
@@ -126,12 +125,8 @@ function updateCarousel() {
     brandName.style.opacity = '0';
 
     setTimeout(() => {
-        // Clear previous content
         content.innerHTML = '';
-        // Add the image
         const img = document.createElement('img');
-        // Ensure you have images in the 'images/' directory for this to work
-        // e.g., 'images/luximatch-carousel.png'
         img.src = current.image; 
         img.alt = current.name;
         img.className = 'carousel-image';
@@ -143,9 +138,6 @@ function updateCarousel() {
         brandName.style.opacity = '1';
     }, 300);
 }
-
-// ... (Keep the rest of the JS functions, they are correct) ...
-
 
 function nextCarousel() {
     currentCarouselIndex = (currentCarouselIndex + 1) % carouselData.length;
@@ -215,16 +207,27 @@ function updateTestimonialCards() {
 
     cardsContainer.innerHTML = '';
 
+    // Check if we have testimonials
+    if (testimonials.length === 0) {
+        const emptyCard = document.createElement('div');
+        emptyCard.className = 'testimonial-card active';
+        emptyCard.innerHTML = '<p>No testimonials available</p>';
+        cardsContainer.appendChild(emptyCard);
+        return;
+    }
+
     // Current testimonial (main card)
     const currentTestimonial = testimonials[currentTestimonialIndex];
     const currentCard = createTestimonialCard(currentTestimonial, 'active');
     cardsContainer.appendChild(currentCard);
 
-    // Next testimonial (preview card)
-    const nextIndex = (currentTestimonialIndex + 1) % testimonials.length;
-    const nextTestimonial = testimonials[nextIndex];
-    const nextCard = createTestimonialCard(nextTestimonial, 'next');
-    cardsContainer.appendChild(nextCard);
+    // Next testimonial (preview card) - only if there are multiple testimonials
+    if (testimonials.length > 1) {
+        const nextIndex = (currentTestimonialIndex + 1) % testimonials.length;
+        const nextTestimonial = testimonials[nextIndex];
+        const nextCard = createTestimonialCard(nextTestimonial, 'next');
+        cardsContainer.appendChild(nextCard);
+    }
 }
 
 function createTestimonialCard(testimonial, className) {
@@ -257,20 +260,37 @@ function createTestimonialCard(testimonial, className) {
     return card;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+// Initialize everything
+function initializePage() {
     // Generate grid
     generateGrid();
 
-    // 🔹 Fetch carousel data from Strapi dynamically
+    // Fetch carousel data from Strapi
     fetchCarouselData();
 
-    // Setup testimonials (still static)
-    generateProfiles();
-    updateTestimonialCards();
+    // Fetch testimonials from Strapi and then setup the UI
+    fetchTestimonials()
+        .then(() => {
+            // Setup testimonials (now dynamic from Strapi)
+            generateProfiles();
+            updateTestimonialCards();
+        })
+        .catch(err => {
+            console.error("Failed to initialize testimonials:", err);
+            // Setup with empty testimonials
+            generateProfiles();
+            updateTestimonialCards();
+        });
 
     // Regenerate grid on window resize
     window.addEventListener('resize', generateGrid);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initializePage();
 });
+
+// ... (Keep your existing homepage and clients code below) ...
 // fetch(`${CONFIG.API_BASE_URL}/homepages?populate=*`)
 //   .then((response) => response.json())
 //   .then((data) => {
