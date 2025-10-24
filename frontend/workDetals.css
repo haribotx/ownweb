@@ -262,12 +262,12 @@ body {
     transition-delay: 0.3s;
 }
 /* Image Section */
-/* Image Section */
+
 .image-section {
     position: relative;
     width: 100%;
-    min-height: 600px;
-    padding: 80px 0;
+    /* min-height: 600px; */
+    /* padding: 80px 0; */
     display: flex;
     align-items: center;
     justify-content: center;
