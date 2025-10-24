@@ -37,11 +37,13 @@ body {
 
 .blog-image img {
   width: 100%;
-  height: 450px; /* fixed, consistent height */
+  height: auto;        
+  max-height: 450px;   
   object-fit: cover;
   border-radius: 6px;
   display: block;
 }
+
 
 
 /* --- Blog Sections --- */
@@ -66,27 +68,36 @@ body {
   color: #cfcfcf;
   font-size: 1rem;
   line-height: 1.8;
-  margin: 0;
-  list-style-position: inside;
+  margin-left: 100;
 
-  /* ✅ Force line break for long words */
-  word-break: break-all;
+  /* proper bullet alignment */
+  list-style-position: outside;
+
+  /* clean text wrapping */
+  word-break: normal;
   overflow-wrap: break-word;
   white-space: normal;
 }
 
+.section-text ul,
+.section-text ol {
+  padding-left: 1.2rem;  
+  margin-top: 8px;
+}
 
 .section-text li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  line-height: 1.7;
 }
+
 
 /* --- Latest Blogs Section --- */
 .latest-blogs {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;       /* ✅ Center the cards */
+  justify-content: center;       
   gap: 25px;
-  max-width: 950px;              /* ✅ Slightly smaller width */
+  max-width: 950px;             
   margin: 60px auto;
   padding: 0 15px;
   box-sizing: border-box;
@@ -142,6 +153,26 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .blog-section {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .section-text {
+    font-size: 0.95rem;
+  }
+   .section-text li {
+    line-height: 1.75;
+  }
+}
+
+
 /* ===== Global Background Lines Setup ===== */
 body {
   /* background-color: black; */
@@ -149,13 +180,13 @@ body {
   margin: 0;
   font-family: 'Inter', Arial, sans-serif;
   position: relative;
-  z-index: 0; /* ensures the body acts as base layer */
+  z-index: 0; 
 }
 
 /* ===== Vertical Lines Background (Behind Content) ===== */
 body::before {
   content: '';
-  position: absolute; /* stays behind while scrolling */
+  position: absolute; 
   top: 0;
   left: 0;
   width: 100%;
@@ -167,7 +198,7 @@ body::before {
     linear-gradient(90deg, transparent 70%, rgba(255, 255, 255, 0.05) 70%, rgba(255, 255, 255, 0.05) calc(70% + 1px), transparent calc(70% + 1px)),
     linear-gradient(90deg, transparent 90%, rgba(255, 255, 255, 0.05) 90%, rgba(255, 255, 255, 0.05) calc(90% + 1px), transparent calc(90% + 1px));
   pointer-events: none;
-  z-index: -1; /* ensures it’s under everything */
+  z-index: -1; 
 }
 
 /* ===== Ensure Content Stays Above Lines ===== */
