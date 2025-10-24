@@ -1,9 +1,12 @@
 body {
-  background-color: #000;
+  /* background-color: #000; */
   color: #e0e0e0;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  background-image: url(./images/Blog\ details\ page.png);
+  background-size: cover;
+
 }
 
 .blog-container {
@@ -141,7 +144,7 @@ body {
 
 /* ===== Global Background Lines Setup ===== */
 body {
-  background-color: black;
+  /* background-color: black; */
   padding: 0;
   margin: 0;
   font-family: 'Inter', Arial, sans-serif;
