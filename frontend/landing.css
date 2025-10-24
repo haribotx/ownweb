@@ -730,19 +730,6 @@ color: #DF5A1C;
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
-  background-color: #000;
-  color: #fff;
-  padding: 3rem 1.5rem;
-}
-
 .services {
   max-width: 1300px;
   margin: 0 auto;
