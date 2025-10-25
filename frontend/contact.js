@@ -37,3 +37,76 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 })
+function initAnimatedText() {
+    const animatedTextSection = document.querySelector('.animated-text-section');
+    const textWords = document.querySelectorAll('.text-word');
+
+    if (!animatedTextSection || textWords.length === 0) return;
+
+    let hasAnimatedIn = false;
+    let hasAnimatedOut = false;
+
+    function handleScroll() {
+        const scrollY = window.pageYOffset;
+        const sectionTop = animatedTextSection.offsetTop;
+        const sectionHeight = animatedTextSection.offsetHeight;
+        const windowHeight = window.innerHeight;
+
+        const animateInPoint = sectionTop - windowHeight + 300;
+        const animateOutPoint = sectionTop + sectionHeight - 300;
+
+        const isInViewport = scrollY >= animateInPoint && scrollY <= animateOutPoint;
+        const isBelowViewport = scrollY > animateOutPoint;
+        const isAboveViewport = scrollY < animateInPoint;
+
+        // Animate In (bottom → up)
+        if (isInViewport && !hasAnimatedIn) {
+            textWords.forEach((word, i) => {
+                setTimeout(() => {
+                    word.classList.add('animate-in');
+                    word.classList.remove('animate-out');
+                }, i * 100);
+            });
+            hasAnimatedIn = true;
+            hasAnimatedOut = false;
+        }
+
+        // Animate Out (up → bottom)
+        if (isBelowViewport && hasAnimatedIn && !hasAnimatedOut) {
+            textWords.forEach((word, i) => {
+                setTimeout(() => {
+                    word.classList.remove('animate-in');
+                    word.classList.add('animate-out');
+                }, i * 100);
+            });
+            hasAnimatedOut = true;
+        }
+
+        // Reset above viewport
+        if (isAboveViewport && hasAnimatedIn) {
+            textWords.forEach(word => {
+                word.classList.remove('animate-in', 'animate-out');
+            });
+            hasAnimatedIn = false;
+            hasAnimatedOut = false;
+        }
+    }
+
+    // Scroll throttling
+    let ticking = false;
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+    handleScroll(); // Run once initially
+}
+
+// Initialize animation after DOM loads
+initAnimatedText();

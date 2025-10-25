@@ -131,7 +131,6 @@ border-radius: 100px;
 .blog-card {
   max-width: 500px;
   width: 100%;
-  background-color: rgba(255,255,255,0.05);
   /* padding: 15px; */
   /* border-radius: 15px; */
   transition: transform 0.3s ease, box-shadow 0.3s ease;

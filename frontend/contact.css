@@ -262,3 +262,142 @@ textarea:focus {
 .line-5 {
   left: 100%;
 }
+/* === Animated Text Section === */
+.animated-text-section {
+  position: relative;
+  width: 100%;
+  height: 425px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  overflow: hidden;
+  background: transparent; /* adjust if needed */
+}
+
+.animated-text-container {
+  text-align: center;
+  width: 100%;
+  max-width: 1215px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animated-text {
+  font-family: "Helvetica Now Display", sans-serif;
+  font-size: 170px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.text-word {
+  display: inline-block;
+  color: #ffffff;
+  opacity: 0;
+  animation: floatText 4s ease-in-out infinite;
+}
+
+.animated-text-sectionlast {
+  position: relative;
+  width: 100%;
+  height: 425px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  overflow: hidden;
+  background: transparent; /* adjust if needed */
+}
+
+.animated-text-last {
+  text-align: center;
+  width: 100%;
+  max-width: 1215px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animated-text-Here {
+  font-family: "Helvetica Now Display", sans-serif;
+  font-size: 100px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.texts-word {
+  display: inline-block;
+  color: #ff6b35;
+  opacity: 0;
+  animation: floatText 4s ease-in-out infinite;
+  gap: 20px;
+}
+
+/* === Continuous Floating Keyframes === */
+@keyframes floatText {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-40px);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+
+/* === Responsive Sizes === */
+@media (max-width: 1024px) {
+  .animated-text {
+    font-size: 140px;
+  }
+}
+
+@media (max-width: 768px) {
+  .animated-text {
+    font-size: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animated-text {
+    font-size: 60px;
+  }
+}
