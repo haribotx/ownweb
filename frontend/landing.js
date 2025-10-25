@@ -411,6 +411,24 @@ fetch(`${CONFIG.API_BASE_URL}/homepages?populate=*`)
       container.appendChild(brandDiv);
     });
 
+    // Page Loader - Hide when everything is loaded
+window.addEventListener('load', function() {
+  const loader = document.getElementById('page-loader');
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add('hidden');
+    }, 100);
+  }
+});
+
+// Fallback: Hide loader after 5 seconds maximum
+setTimeout(() => {
+  const loader = document.getElementById('page-loader');
+  if (loader && !loader.classList.contains('hidden')) {
+    loader.classList.add('hidden');
+  }
+}, 5000);
+
     // Duplicate for continuous scroll effect
     const clone = container.cloneNode(true);
     container.parentElement.appendChild(clone);
