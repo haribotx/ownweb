@@ -401,3 +401,21 @@ textarea:focus {
     font-size: 60px;
   }
 }
+/* === Responsive Sizes === */
+@media (max-width: 1024px) {
+  .animated-text-Here {
+    font-size: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .animated-text-Here {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .animated-text-Here {
+    font-size: 40px;
+  }
+}
