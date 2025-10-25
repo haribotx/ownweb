@@ -133,7 +133,7 @@ body::before {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   overflow: hidden;
   margin-bottom: 40px;
   /* background: rgba(255, 255, 255, 0.05); */
@@ -141,6 +141,7 @@ body::before {
   min-height: 350px;
   position: relative;
   z-index: 1;
+  overflow: visible;
 }
 
 .work-card:hover {
@@ -164,18 +165,25 @@ body::before {
   vertical-align: middle;
 }
 
+
 .image-container {
   position: relative;
-  display: inline-block;
-  height: 350px;
+  width: 50%;
+  height: 100%;
+  overflow: visible;
+  display: flex;
 }
 
 .image-container img {
-  display: block;
   width: 100%;
-  height: auto;
-  border-radius: 10px; /* optional */
-
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
 }
 
 .image-size {
@@ -185,39 +193,40 @@ body::before {
 
 .corner-icon {
   position: absolute;
-  color: #DF5A1C;
-  font-size: 18px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  color: #df5a1c;
+  font-size: 32px;
+  font-weight: 300;
+  z-index: 20;
+  line-height: 1;
+  text-shadow: 0 0 5px rgba(223, 90, 28, 0.5);
+  pointer-events: none;
 }
 
 
 
 /* Positioning each corner */
 .top-left {
-  top: -6px;
-  left: -6px;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
 }
 
 .top-right {
-  top: -6px;
-  right: -6px;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
 }
 
 .bottom-left {
-  bottom: 17px;
-  left: -6px;
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
 }
 
 .bottom-right {
-  bottom: 17px;
-  right: -8px;
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
 }
 
 
@@ -228,7 +237,7 @@ body::before {
   padding: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   color: white;
   box-sizing: border-box;
   min-height: 100%;
@@ -321,14 +330,18 @@ body::before {
     width: 100%;
   }
 
-  .work-card img,
-  .work-card:nth-child(even) img {
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
-    border: none;
-    border-left: none;
-  }
+.work-card img,
+.work-card:nth-child(even) img {
+  height: auto;
+  object-fit: contain;
+  border: none;
+  border-left: none;
+}
+
+.image-container {
+  width: 100%;
+  height: auto;
+}
 
   .work-content {
     padding: 20px;
