@@ -361,6 +361,31 @@ textarea:focus {
   gap: 20px;
 }
 
+/* toast ui */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(25px) scale(0.95);
+  transition: all 0.35s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
 /* === Continuous Floating Keyframes === */
 @keyframes floatText {
   0% {
@@ -429,9 +454,13 @@ textarea:focus {
   }
 }
 
-@media (max-width: 480px) {
-  .animated-text-Here {
-    font-size: 40px;
+@media (min-width: 481px) and (max-width: 1024px) {
+  .toast {
+    bottom: 25px;
+    right: 25px;
+    width: auto; 
+    max-width: 300px; 
+    text-align: left;
   }
 }
 
