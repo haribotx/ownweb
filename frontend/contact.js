@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 form.reset()
             }
             else {
-                showToast("Failes to send message.Please try again")
+                showToast("Failed to send message.Please try again")
             }
         } catch (error) {
             console.log('Error: ', error);
