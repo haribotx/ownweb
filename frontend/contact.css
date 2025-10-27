@@ -14,8 +14,9 @@ body {
   display: flex;
   justify-content: center;
   position: relative;
+  padding-left: 80px;
   z-index: 1;
-  margin-top: 130px;
+  margin-top: -30px;
   max-width: 90%;
 }
 
@@ -81,7 +82,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: -150px;
+  margin-bottom: -100px;
   position: relative;
   z-index: 10;
 }
@@ -394,6 +396,19 @@ textarea:focus {
   .animated-text {
     font-size: 90px;
   }
+  .contact-section {
+    padding-left: 20px;
+    padding-right: 20px; 
+    margin-top: -80px ;
+  }
+    .animated-text-section {
+    margin-top: -50px; 
+  }
+  .contact-me{
+    margin-top: -250px;
+    margin-bottom: -100px;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -419,3 +434,4 @@ textarea:focus {
     font-size: 40px;
   }
 }
+
