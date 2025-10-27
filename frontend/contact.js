@@ -1,3 +1,16 @@
+// toast helper function
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
+
 
 //for sending contact messages
 
@@ -24,15 +37,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
             })
             if (response.ok) {
-                alert("Message sent Succesfully")
+                showToast("Message sent Succesfully")
                 form.reset()
             }
             else {
-                alert("Failes to send message.Please try again")
+                showToast("Failes to send message.Please try again")
             }
         } catch (error) {
             console.log('Error: ', error);
-            alert("Something went wrong")
+            showToast("Something went wrong")
 
         }
     })
