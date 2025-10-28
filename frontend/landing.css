@@ -13,7 +13,7 @@
   transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-#page-loader.hidden {
+/* #page-loader.hidden {
   opacity: 0;
   visibility: hidden;
 }
@@ -44,7 +44,7 @@
   margin-top: 20px;
   letter-spacing: 3px;
   font-weight: 400;
-}
+} */
 
 
 body {
@@ -238,7 +238,7 @@ font-family: 'Poppins', 'Montserrat', 'Nunito', sans-serif;
 /* service section */
 
 .service-section{
-  width: auto;
+  width: 100%;
   height: 885px;
   background-image: url(./images/serviceBg.jpg);
 display: flex;
