@@ -191,53 +191,88 @@ function generateProfiles() {
 function selectTestimonial(index) {
     currentTestimonialIndex = index;
 
-    // Update active profile
     const profiles = document.querySelectorAll('.profile-item');
     profiles.forEach((profile, i) => {
         profile.classList.toggle('active', i === index);
     });
 
-    // Update testimonial cards
-    updateTestimonialCards();
+    slideTestimonialTrack(index); 
+     
 }
+// New function to handle the sliding animation
+function slideTestimonialTrack(index) {
+    const track = document.getElementById('testimonialTrack');
+    const container = document.getElementById('testimonialCards'); 
 
+    if (!track || !container) return;
+
+    const cards = track.querySelectorAll('.testimonial-card');
+    if (cards.length === 0 || index < 0 || index >= cards.length) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const containerCenter = containerRect.left + (containerRect.width / 2);
+
+    const activeCard = cards[index];
+    const activeCardRect = activeCard.getBoundingClientRect();
+    
+    const activeCardCenter = activeCardRect.left + (activeCardRect.width / 2);
+
+    const currentTrackTransform = window.getComputedStyle(track).transform;
+    let currentX = 0;
+    if (currentTrackTransform && currentTrackTransform !== 'none') {
+
+        const matrix = currentTrackTransform.match(/matrix.*\((.+)\)/)[1].split(', ');
+        currentX = parseFloat(matrix[4]);
+    }
+
+    const centerDifference = containerCenter - activeCardCenter;
+
+    const newTranslationX = currentX + centerDifference;
+
+    track.style.transform = `translateX(${newTranslationX}px)`;
+
+    cards.forEach((card, i) => {
+        card.classList.toggle('active', i === index);
+    });
+}
 function updateTestimonialCards() {
     const cardsContainer = document.getElementById('testimonialCards');
     if (!cardsContainer) return;
 
-    cardsContainer.innerHTML = '';
+    cardsContainer.innerHTML = ''; 
+
+    const track = document.createElement('div');
+    track.id = 'testimonialTrack';
+    track.className = 'testimonial-track';
+    cardsContainer.appendChild(track);
 
     // Check if we have testimonials
     if (testimonials.length === 0) {
-        const emptyCard = document.createElement('div');
-        emptyCard.className = 'testimonial-card active';
-        emptyCard.innerHTML = '<p>No testimonials available</p>';
-        cardsContainer.appendChild(emptyCard);
+        const emptyCard = createTestimonialCard({ 
+            name: "Team", role: "Developer", text: "No testimonials available" 
+        }, 'active');
+        track.appendChild(emptyCard);
         return;
     }
 
-    // Current testimonial (main card)
-    const currentTestimonial = testimonials[currentTestimonialIndex];
-    const currentCard = createTestimonialCard(currentTestimonial, 'active');
-    cardsContainer.appendChild(currentCard);
-
-    // Next testimonial (preview card) - only if there are multiple testimonials
-    if (testimonials.length > 1) {
-        const nextIndex = (currentTestimonialIndex + 1) % testimonials.length;
-        const nextTestimonial = testimonials[nextIndex];
-        const nextCard = createTestimonialCard(nextTestimonial, 'next');
-        cardsContainer.appendChild(nextCard);
-    }
+    testimonials.forEach((testimonial, index) => {
+        const cardClass = index === currentTestimonialIndex ? 'active' : '';
+        const card = createTestimonialCard(testimonial, cardClass);
+        track.appendChild(card);
+    });
+    
+    setTimeout(() => {
+        slideTestimonialTrack(currentTestimonialIndex);
+    }, 0); 
 }
 
 function createTestimonialCard(testimonial, className) {
     const card = document.createElement('div');
     card.className = `testimonial-card ${className}`;
 
-    // Conditional rendering for image or emoji in the author section
     const authorImageContent = testimonial.avatarImage
         ? `<img src="${testimonial.avatarImage}" alt="${testimonial.name}" class="profile-image">`
-        : `<span>${testimonial.avatar}</span>`; // Fallback to emoji if no image
+        : `<span>${testimonial.avatar}</span>`;
 
     card.innerHTML = `
         <div class="card-plus tl">+</div>
@@ -260,32 +295,34 @@ function createTestimonialCard(testimonial, className) {
     return card;
 }
 
-// Initialize everything
 function initializePage() {
-    // Generate grid
     generateGrid();
 
-    // Fetch carousel data from Strapi
     fetchCarouselData();
 
-    // Fetch testimonials from Strapi and then setup the UI
     fetchTestimonials()
         .then(() => {
-            // Setup testimonials (now dynamic from Strapi)
+
             generateProfiles();
             updateTestimonialCards();
+            
+            setTimeout(() => {
+                slideTestimonialTrack(currentTestimonialIndex); 
+            }, 100);
         })
         .catch(err => {
             console.error("Failed to initialize testimonials:", err);
-            // Setup with empty testimonials
             generateProfiles();
             updateTestimonialCards();
         });
 
-    // Regenerate grid on window resize
-    window.addEventListener('resize', generateGrid);
+    window.addEventListener('resize', function() {
+        generateGrid();
+        setTimeout(() => {
+            slideTestimonialTrack(currentTestimonialIndex);
+        }, 50); 
+    });
 }
-
 document.addEventListener('DOMContentLoaded', function() {
     initializePage();
 });
