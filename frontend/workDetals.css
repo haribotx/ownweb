@@ -11,7 +11,8 @@ body {
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
-    background-image: url(./images/workDetailsBg.jpg);
+    /* background-image: url(./images/workDetailsBg.jpg); */
+    background-image: url(./images/Works\ details\ page.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1087,7 +1088,7 @@ justify-content: space-between;
 
 /* Background Lines */
 .background-lines {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -1099,7 +1100,7 @@ justify-content: space-between;
 .bg-line {
     position: absolute;
     width: 1.27px;
-    height: 100vh;
+    height: 471vh;
     opacity: 1;
     transform: none;
     border: none;

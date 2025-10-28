@@ -153,6 +153,7 @@ textarea:focus {
   transition: background 0.3s ease;
   position: relative;
   z-index: 13;
+  height: 50px;
 }
 
 .btn::before {
@@ -226,7 +227,7 @@ textarea:focus {
 }
 
 .background-lines {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -238,7 +239,7 @@ textarea:focus {
 .bg-line {
   position: absolute;
   width: 1.27px;
-  height: 100vh;
+  height: 310vh;
   opacity: 1;
   transform: none;
   border: none;
