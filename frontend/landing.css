@@ -130,6 +130,7 @@ body {
   width: 141px;
   height: 41px;
   padding: 1px;
+  text-decoration: none;
 }
 
 .component-23 {
@@ -1052,6 +1053,10 @@ align-items: center;
   border: #666 solid 1px;
 }
 
+.service-card.empty {
+  border: none;
+}
+
 .service-card p {
   color: #999;
   font-size: 0.9rem;
@@ -1093,7 +1098,36 @@ align-items: center;
   background: #000;
 }
 
+.plus-b-left{
+  position: absolute;
+  bottom: -8px;
+  left: -1px;
+  transform: translateX(-50%);
+  color: #ff6600;
+  background: #000;
+}
+
+
+.plus-icon-b-center {
+position: absolute;
+  bottom: -8px;
+  right: 280px;
+  transform: translateX(-50%);
+  color: #ff6600;
+  background: #000;
+}
+
+
 .plus-icon-b-right{
+  position: absolute;
+  bottom: -9px;
+  right: -11px;
+  transform: translateX(-50%);
+  color: #ff6600;
+  background: #000;
+}
+
+.plus-b-right{
   position: absolute;
   bottom: -9px;
   right: -11px;
@@ -1152,13 +1186,40 @@ align-items: center;
   .services-tag::before {
     background : none;
   }
+  .plus-icon-b-center {
+    position: static !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: none !important;
+    background: none !important;
+    display: none !important;
+  }
+  .plus-b-left{
+  position: static !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+  background: none !important;
+  color: none !important;
+  display: none !important;
+}
 
+.plus-b-right{
+    position: static !important;
+    bottom: auto !important;
+    right: auto !important;
+    transform: none !important;
+   background: none !important;
+  color: none !important;
+  display: none !important;
+}
 }
 
 @media (max-width  : 688px){
   .services-header {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
