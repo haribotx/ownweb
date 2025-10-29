@@ -319,6 +319,7 @@ testimonial-main-section {
 .carousel-section {
   position: relative;
   margin-bottom: 80px;
+  padding: 50px;
 }
 
 .carousel-wrapper {
@@ -756,6 +757,11 @@ testimonial-main-section {
   .testimonial-cards {
     flex-direction: column;
     align-items: center;
+
+  }
+
+  .testimonial-card {
+    max-width: 200px;
   }
 
   .testimonial-card.next {
