@@ -378,7 +378,10 @@ fetch(`${CONFIG.API_BASE_URL}/homepages?populate=*`)
 // }, 5000);
 
     // Duplicate for continuous scroll effect
-    const clone = container.cloneNode(true);
-    container.parentElement.appendChild(clone);
+const brands = Array.from(container.children);
+    brands.forEach((brand) => {
+      const clone = brand.cloneNode(true);
+      container.appendChild(clone);
+    });
   })
   .catch((error) => console.error("Error fetching homepages:", error));
