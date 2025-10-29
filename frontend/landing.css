@@ -1,5 +1,5 @@
 /* Page Loader Styles */
-#page-loader {
+/* #page-loader {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   align-items: center;
   z-index: 99999;
   transition: opacity 0.5s ease, visibility 0.5s ease;
-}
+} */
 
 /* #page-loader.hidden {
   opacity: 0;
@@ -213,12 +213,11 @@ font-family: 'Poppins', 'Montserrat', 'Nunito', sans-serif;
 }
 
 @keyframes scroll {
-  from {
-    transform: translateX(200%);
+  0% {
+    transform: translateX(0);
   }
-
-  to {
-    transform: translateX(-100%);
+  100% {
+    transform: translateX(-50%);
   }
 }
 
@@ -244,7 +243,7 @@ font-family: 'Poppins', 'Montserrat', 'Nunito', sans-serif;
   background-image: url(./images/serviceBg.jpg);
 display: flex;
 align-items: center;
-justify-content: center;
+justify-content: center;
 }
 
 .service-text {
@@ -320,7 +319,6 @@ testimonial-main-section {
 .carousel-section {
   position: relative;
   margin-bottom: 80px;
-  padding: 50px;
 }
 
 .carousel-wrapper {
@@ -765,10 +763,6 @@ testimonial-main-section {
     opacity: 0.5;
   }
 
-  .testimonial-card {
-    max-width: 200px;
-  }
-
   .carousel-brand {
     font-size: 32px;
   }
@@ -936,7 +930,7 @@ align-items: center;
   transition: all 0.3s ease;
  padding: 10px;
  width: 271px;
-  height: 200px;
+  height: auto;
 }
 
 
@@ -956,6 +950,7 @@ align-items: center;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 } 
 
 .tags {
@@ -1145,7 +1140,6 @@ position: absolute;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 20px 10px 10px 10px;
-
 }
 
 .tags-grid {
@@ -1171,6 +1165,8 @@ position: absolute;
 @media (max-width: 1130px) {
   .services-header {
     grid-template-columns: repeat(2, 1fr);
+    border: none;
+    width: 100%;
   }
   .two-sections {
     display: flex;
@@ -1248,15 +1244,16 @@ position: absolute;
 }
 
 /* Below 600px → 1 column */
-@media (max-width: 600px) {
+@media (max-width: 613px) {
   .services-grid {
-    grid-template-columns: 1fr;
-    justify-items: stretch;
+    display: flex;
+    flex-direction: column;
+    
   }
 
   .service-card {
     height: auto;
-    padding: 20px;
+    /* padding: 20px; */
   }
 
   .service-card h3 {
