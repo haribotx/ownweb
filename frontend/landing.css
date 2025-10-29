@@ -323,7 +323,8 @@ color: #DF5A1C;
 
 .carousel-wrapper {
   position: relative;
-  background: linear-gradient(135deg, rgba(223, 90, 28, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+  /* background: linear-gradient(135deg, rgba(223, 90, 28, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%); */
+  background-image: url(./images/BGi.jpg);
   padding: 60px 20px;
   overflow: visible;
   display: flex;
@@ -331,7 +332,9 @@ color: #DF5A1C;
   justify-content: center;
   /* min-height: 300px; */
   height: 400px;
-  /* width: 100%; */
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .corner-plus {
@@ -411,21 +414,23 @@ color: #DF5A1C;
   text-align: center;
   padding: 10px 20px;
   z-index: 10;
+  text-align: center;
 }
 
 .carousel-controls {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  width: 900px;
+  max-width: 100%;
   /* Spans the full width of the footer container */
   /* max-width: var(--max-carousel-width, 1200px); */
   /* Use the max width of the main section */
   pointer-events: none;
   display: flex;
   justify-content: space-between;
-  /* padding: 0 20px; */
-  left: 0;
+  padding: 0 20px;
+  /* left: 0; */
 }
 
 
@@ -865,6 +870,16 @@ color: #DF5A1C;
         gap: 10px;
         padding: 15px 8px;
     }
+
+    .carousel-brand {
+        font-size: 24px;
+    }
+
+    .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
 }
 
 
