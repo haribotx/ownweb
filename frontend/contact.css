@@ -8,6 +8,13 @@ body {
   background-image: url(./images/contact\ page.png);
   background-repeat: no-repeat;
   background-size: cover;   
+  overflow-x: hidden;
+}
+
+.fa-brands {
+  color: white;
+  font-weight: 600;
+  font-size: 24px;
 }
 
 .contact-section {
@@ -63,6 +70,17 @@ body {
   justify-content: center;
   align-items: center;
 }
+.contact-grid-item-icon a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  line-height: 0;          
+  vertical-align: middle; 
+}
+
 
 .icon {
   width: 24px;
@@ -78,15 +96,17 @@ body {
 
 .contact-me {
   width: 100%;
-  min-height: 100vh;
+  min-height: auto;        
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -150px;
-  margin-bottom: -100px;
+  margin-top: 20px;        /* small spacing above */
+  margin-bottom: 50px;     /* small spacing before footer */
   position: relative;
   z-index: 10;
+  padding-bottom: 50px;    
 }
+
 
 .form-container {
   width: 100%;
@@ -412,15 +432,20 @@ textarea:focus {
 }
 
 /* === Responsive Sizes === */
-@media (max-width: 1024px) {
-  .animated-text {
-    font-size: 140px;
-  }
-}
+
 
 @media (max-width: 768px) {
-  .animated-text {
-    font-size: 90px;
+ .animated-text-Here {
+    font-size: 48px;       
+    letter-spacing: -1px;
+  }
+  .animated-text-sectionlast {
+    padding: 40px 0;
+    overflow-x: hidden;     /* prevent cutoff scroll */
+  }
+  .text-line {
+    gap: 10px;              
+    flex-wrap: wrap;       
   }
   .contact-section {
     padding-left: 20px;
@@ -431,8 +456,8 @@ textarea:focus {
     margin-top: -50px; 
   }
   .contact-me{
-    margin-top: -250px;
-    margin-bottom: -100px;
+    margin-top: -50px;
+    margin-bottom: 50px;
   }
 
 }
@@ -464,6 +489,8 @@ textarea:focus {
     text-align: left;
   }
 }
+
+
 
 
 
