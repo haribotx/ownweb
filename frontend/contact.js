@@ -123,3 +123,30 @@ function initAnimatedText() {
 
 // Initialize animation after DOM loads
 initAnimatedText();
+
+
+//Dynamic Background Line Height (Stops Before Footer) 
+window.addEventListener("load", () => {
+  const lines = document.querySelectorAll(".bg-line");
+  const footer = document.getElementById("footer-placeholder");
+
+  function adjustLineHeight() {
+    if (!footer) return;
+
+   
+    const footerTop = footer.getBoundingClientRect().top + window.scrollY;
+
+    
+    const endPosition = footerTop; 
+
+    lines.forEach(line => {
+      line.style.height = `${endPosition}px`;
+    });
+  }
+
+  // Run once when footer is loaded
+  adjustLineHeight();
+
+  // Re-run when window is resized or content changes
+  window.addEventListener("resize", adjustLineHeight);
+});

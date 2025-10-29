@@ -152,3 +152,6 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?sort=createdAt:desc&pagination[limit]=3&popu
     console.error("Error fetching latest blogs:", err);
     if (latestContainer) latestContainer.innerHTML = "<p>Error loading blogs.</p>";
   });
+
+
+  
