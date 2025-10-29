@@ -813,22 +813,23 @@ color: #DF5A1C;
         padding: 20px 10px;
     }
     
-    /* .title-span1, .title-span2 {
+    .title-span1, .title-span2 {
         font-size: 40px;
-        line-height: 48px;
-    } */
+        line-height: 38px;
+    }
     
-    /* .width-paragraph {
+    .width-paragraph {
         font-size: 16px;
-    } */
+    } 
     
-    /* .service-paragraph, .service-paragraph-span {
+    .service-paragraph, .service-paragraph-span {
         font-size: 36px;
-    } */
+    } 
     
-    /* .carousel-brand, .testimonial-title {
+     .carousel-brand, .testimonial-title {
         font-size: 30px;
-    } */
+    } 
+
 }
 @media (max-width: 370px) {
     .testimonial-card {
