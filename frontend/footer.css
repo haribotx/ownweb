@@ -311,3 +311,19 @@ color: white;
     padding: 10px;
   }
 }
+
+/* Ensure footer touches previous section */
+.animated-text-sectionlast {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#footer-placeholder {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.site-footer {
+  margin-top: 0 !important;
+  padding-top: 0 !important; 
+}
