@@ -64,6 +64,13 @@ body {
   padding: 50px;
 }
 
+@media (max-width:640px) {
+  .text-and-button {
+    padding: 14px;
+  }
+
+}
+
 
 .title-span1 {
   color: #df5a1c;
@@ -117,6 +124,14 @@ body {
 .ourclients{
   padding: 50px;
 }
+
+@media (max-width:640px){
+  .ourclients{
+  padding: 14px;
+}
+}
+
+
 
 .div-block {
   outline-offset: 0px;
@@ -237,18 +252,34 @@ font-family: 'Poppins', 'Montserrat', 'Nunito', sans-serif;
 
 /* service section */
 
-.service-section{
-  width: 100%;
+.service-section {
   height: 885px;
   background-image: url(./images/serviceBg.jpg);
-display: flex;
-align-items: center;
-justify-content: center;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;        /* Vertical center */
+  justify-content: center;    /* Horizontal center */
+  padding: 50px;
+}
+
+@media (max-width : 640px){
+  .service-section {
+    padding: 14px;
+  }
 }
 
 .service-text {
-  width: 647px;
+  width: 647px;               
+  height: 147px;              
+  display: flex;
+  flex-direction: column;
+  align-items: center;        
+  justify-content: center;   
+  text-align: center;
+  opacity: 1;
 }
+
 .service-h5{
   font-family: 'Inter', sans-serif;
 font-weight: 400;
@@ -258,6 +289,7 @@ line-height: 100%;
 letter-spacing: 0;
 text-align: center;
 color: #000;
+margin: 0px;
 }
 
 .service-paragraph {
@@ -269,6 +301,7 @@ line-height: 90%;
 letter-spacing: 2%;
 text-align: center;
 color: #000000;
+margin-top: 16px;
 }
 
 .service-paragraph-span {
@@ -321,6 +354,7 @@ testimonial-main-section {
   margin-bottom: 80px;
   padding: 50px;
 }
+
 
 .carousel-wrapper {
   position: relative;
@@ -895,6 +929,12 @@ testimonial-main-section {
 padding: 0px 50px 0px 50px;
 }
 
+@media (max-width:640px){
+  .services{
+  padding: 14px;
+}
+}
+
 .two-sections {
   display: flex;
   justify-content: space-between;
@@ -1264,13 +1304,5 @@ position: absolute;
 
   .service-card h3 {
     font-size: 28px;
-  }
 }
-
-
-
-
-
-
-
-
+}

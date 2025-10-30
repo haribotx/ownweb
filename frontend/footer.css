@@ -10,6 +10,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
+
 .footer-top {
   display: flex;
   justify-content: space-between;
@@ -242,7 +243,7 @@ color: white;
 
 @media (max-width: 800px) {
   .site-footer {
-    padding: 20px;
+    padding: 14px;
   }
 
   .footer-top {
@@ -325,5 +326,5 @@ color: white;
 
 .site-footer {
   margin-top: 0 !important;
-  padding-top: 0 !important; 
+  padding-top: 0!important;
 }

@@ -3,10 +3,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
-/* Header Specific Styles - Scoped */
+/* ================= HEADER BASE ================= */
 .header-component .header {
     position: fixed;
     top: 16px;
@@ -18,10 +17,9 @@
 }
 
 .header-component .header-container {
-    /* max-width: 1200px; */
     width: auto;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 14px ;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,10 +27,11 @@
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 999px;
-    padding: 14px 50px 14px 50px;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 10px 30px rgba(0,0,0,0.35);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 
+                0 10px 30px rgba(0,0,0,0.35);
 }
 
+/* ================= BRAND ================= */
 .header-component .logo {
     font-size: 24px;
     font-weight: 700;
@@ -42,6 +41,11 @@
     background-clip: text;
     text-decoration: none;
     padding-left: 8px;
+}
+
+/* ================= NAVIGATION ================= */
+.header-component .nav-menu {
+    margin: 0 auto;
 }
 
 .header-component .nav-list {
@@ -58,21 +62,16 @@
 }
 
 .header-component .nav-link:hover {
-    color: #ffffff;
+    color: #fff;
     opacity: 1;
 }
 
-/* Layout: keep nav centered between brand and CTA */
-.header-component .nav-menu {
-    margin: 0 auto;
-}
-
-/* Mobile CTA - Hidden on desktop */
+/* ================= MOBILE CTA ================= */
 .header-component .mobile-cta {
     display: none;
 }
 
-/* Hamburger Menu */
+/* ================= HAMBURGER MENU ================= */
 .header-component .hamburger {
     display: none;
     flex-direction: column;
@@ -85,8 +84,8 @@
     width: 25px;
     height: 2px;
     background: #fff;
-    transition: all 0.3s ease;
     border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
 .header-component .hamburger.active span:nth-child(1) {
@@ -101,9 +100,7 @@
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* ========================= */
-/* Conic Gradient CTA Button */
-/* ========================= */
+/* ================= CONIC GRADIENT CTA BUTTON ================= */
 @property --gradient-angle {
     syntax: "<angle>";
     initial-value: 0deg;
@@ -186,7 +183,7 @@
     100% { --gradient-angle: 360deg; }
 }
 
-/* Responsive Design - Header Only */
+/* ================= RESPONSIVE STYLES ================= */
 @media (max-width: 768px) {
     .header-component .header-container {
         border-radius: 20px;
@@ -215,7 +212,7 @@
         height: 100vh;
         background: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(12px);
-        padding: 80px 20px 20px 20px;
+        padding: 80px 20px 20px;
         transition: right 0.3s ease;
         border-left: 1px solid rgba(255, 255, 255, 0.06);
         border-radius: 0;
@@ -238,7 +235,6 @@
 
     .header-component .mobile-cta {
         display: list-item;
-        /* width: 100%; */
     }
 
     .header-component .mobile-cta .border-loop-btn {
@@ -259,6 +255,6 @@
     }
 
     .header-component .logo {
-        font-size: 20px;
+        font-size: 20px
     }
 }
