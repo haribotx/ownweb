@@ -852,14 +852,14 @@ testimonial-main-section {
         padding: 20px 10px;
     }
     
-    /* .title-span1, .title-span2 {
-        font-size: 40px;
+    .title-span1, .title-span2 {
+        font-size: 50px;
         line-height: 48px;
-    } */
+    }
     
-    /* .width-paragraph {
+    .width-paragraph {
         font-size: 16px;
-    } */
+    }
     
     /* .service-paragraph, .service-paragraph-span {
         font-size: 36px;
