@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const placeholder = document.getElementById("footer-placeholder");
   if (!placeholder) return;
 
-  const footerUrl = new URL("footer.html", window.location.href).href;
+  const footerUrl = new URL("/frontend/footer.html", window.location.href).href;
 
   fetch(footerUrl)
     .then((res) => {
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       placeholder.innerHTML = html;
 
       // Load footer.css if it's not already present
-      const cssHref = new URL("footer.css", window.location.href).href;
+      const cssHref = new URL("/frontend/footer.css", window.location.href).href;
       if (!Array.from(document.querySelectorAll("link[rel=stylesheet]"))
                 .some(link => new URL(link.href, window.location.href).href === cssHref)) {
         const linkEl = document.createElement("link");
