@@ -9,21 +9,12 @@
       "destination": "/frontend/work.html"
     },
     {
-      "source": "/work",
+      "source": "/work-details",
       "destination": "/frontend/workDetails.html"
     },
     {
       "source": "/blog",
       "destination": "/frontend/blog.html"
-    },
-    {
-      "source": "/blog",
-      "destination": "/frontend/blogDetails.html"
-    },
-    {
-      "source": "/blog",
-      "destination": "/frontend/contact.html" 
     }
-  ],
-  "cleanUrls": true
+  ]
 }
