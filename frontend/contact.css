@@ -5,7 +5,8 @@ body {
   margin: 0;
   position: relative;
   z-index: 0;
-  background-image: url(./images/contact\ page.png);
+  /* background-image: url(./images/contact\ page.png); */
+  background-image: url(/frontend/images/contact\ page.png);
   background-repeat: no-repeat;
   background-size: cover;   
   overflow-x: hidden;

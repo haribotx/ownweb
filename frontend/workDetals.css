@@ -11,8 +11,8 @@ body {
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
-    /* background-image: url(./images/workDetailsBg.jpg); */
-    background-image: url(./images/Works\ details\ page.png);
+    /* background-image: url(./images/Works\ details\ page.png); */
+    background-image: url(/frontend/images/Works\ details\ page.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
