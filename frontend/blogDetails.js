@@ -36,7 +36,7 @@ if (!blogId) {
           });
           imgContainer.innerHTML = imageHTML;
         } else {
-          imgContainer.innerHTML = `<img src="./images/logo.png" alt="Default Blog Image" style="width:100%; border-radius:10px;">`;
+          imgContainer.innerHTML = `<img src="/frontend/images/logo.png" alt="Default Blog Image" style="width:100%; border-radius:10px;">`;
         }
       }
 

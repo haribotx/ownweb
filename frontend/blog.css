@@ -6,12 +6,25 @@ body {
     padding: 10px;
     font-family: 'Inter', Arial, sans-serif;
     margin: 0;
-    padding-top: 100px; 
+    padding: 100px; 
     /* background-image: url(./images/Blog\ page.png); */
     background-image: url(/frontend/images/Blog\ page.png);
         background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+/* body {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
+  position: relative;
+  z-index: 0; 
+} */
+
+.blog-title-top {
+  color: #FFF7EB;
 }
 
 /* Remove any global container styles that might conflict */
@@ -23,6 +36,7 @@ body {
     text-align: center;
     max-width: 1200px; /* Add max-width to avoid conflict */
     margin: 0 auto; /* Center the container */
+    padding-top: 80px;
 }
 
 .section-title {
@@ -30,7 +44,7 @@ body {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 20px;
-  margin-top: 110px;
+  margin-top: 10px;
 }
 
 .section-title-span {
@@ -341,17 +355,6 @@ border-radius: 100px;
     width: auto;
     height: auto;
   } */
-}
-
-
-/* ===== Global Background Lines Setup ===== */
-body {
-  background-color: black;
-  padding: 0;
-  margin: 0;
-  font-family: 'Inter', Arial, sans-serif;
-  position: relative;
-  z-index: 0; /* ensures the body acts as base layer */
 }
 
 /* ===== Vertical Lines Background (Behind Content) ===== */

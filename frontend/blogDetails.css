@@ -1,13 +1,14 @@
 body {
   /* background-color: #000; */
   color: #e0e0e0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   margin: 0;
   padding: 0;
   /* background-image: url(./images/Blog\ details\ page.png); */
   background-image: url(/frontend/images/Blog\ details\ page.png);
   background-size: cover;
-
+position: relative;
+  z-index: 0; 
 }
 
 .blog-container {
@@ -173,16 +174,6 @@ body {
   }
 }
 
-
-/* ===== Global Background Lines Setup ===== */
-body {
-  /* background-color: black; */
-  padding: 0;
-  margin: 0;
-  font-family: 'Inter', Arial, sans-serif;
-  position: relative;
-  z-index: 0; 
-}
 
 /* ===== Vertical Lines Background (Behind Content) ===== */
 body::before {
