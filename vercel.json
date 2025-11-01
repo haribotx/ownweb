@@ -1,9 +1,20 @@
 {
-  "redirects": [
+  "rewrites": [
     {
       "source": "/",
-      "destination": "/frontend/landing.html",
-      "permanent": false
-}
-]
+      "destination": "/frontend/landing.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/frontend/work.html"
+    },
+    {
+      "source": "/work-details",
+      "destination": "/frontend/workDetails.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/frontend/blog.html"
+    }
+  ]
 }
