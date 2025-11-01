@@ -15,6 +15,14 @@
     {
       "source": "/blog",
       "destination": "/frontend/blog.html"
+    },
+      {
+      "source": "/blog-details",
+      "destination": "/frontend/blogDetails.html"
+    },
+      {
+      "source": "/contact",
+      "destination": "/frontend/contact.html"
     }
   ]
 }
