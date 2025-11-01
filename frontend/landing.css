@@ -48,8 +48,8 @@
 
 
 body {
-  /* background-image: url(./images/group-202147234221.png); */
-  background-image: url(./images/landingpage.png);
+  /* background-image: url(./images/landingpage.png); */
+  background-image: url(/frontend/images/landingpage.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -254,7 +254,8 @@ font-family: 'Poppins', 'Montserrat', 'Nunito', sans-serif;
 
 .service-section {
   height: 885px;
-  background-image: url(./images/serviceBg.jpg);
+  /* background-image: url(./images/serviceBg.jpg); */
+  background-image: url(/frontend/images/serviceBg.jpg);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -359,7 +360,8 @@ testimonial-main-section {
 .carousel-wrapper {
   position: relative;
   /* background: linear-gradient(135deg, rgba(223, 90, 28, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%); */
-  background-image: url(./images/BGi.jpg);
+  /* background-image: url(./images/BGi.jpg); */
+  background-image: url(/frontend/images/BGi.jpg);
   padding: 60px 20px;
   overflow: visible;
   display: flex;
