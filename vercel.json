@@ -1,9 +1,29 @@
 {
-  "redirects": [
+  "rewrites": [
     {
       "source": "/",
-      "destination": "/frontend/landing.html",
-      "permanent": false
+      "destination": "/frontend/landing.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/frontend/work.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/frontend/workDetails.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/frontend/blog.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/frontend/blogDetails.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/frontend/contact.html" 
     }
-  ]
+  ],
+  "cleanUrls": true
 }
