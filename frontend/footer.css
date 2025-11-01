@@ -168,7 +168,7 @@ color: white;
   grid-template-columns: repeat(3, 72px);
   grid-template-rows: repeat(3, 72px);
   gap: 0;
-  width: 200px;
+  width: auto;
 }
 
 .grid-item {
