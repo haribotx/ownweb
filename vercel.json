@@ -1,29 +1,9 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
-      "destination": "/frontend/landing.html"
-    },
-    {
-      "source": "/work",
-      "destination": "/frontend/work.html"
-    },
-    {
-      "source": "/workDetails",
-      "destination": "/frontend/workDetails.html"
-    },
-    {
-      "source": "/blog",
-      "destination": "/frontend/blog.html"
-    },
-    {
-      "source": "/blogDetails",
-      "destination": "/frontend/blogDetails.html"
-    },
-    {
-      "source": "/contact",
-      "destination": "/frontend/contact.html" 
-    }
-  ],
-  "cleanUrls": true
+      "destination": "/frontend/landing.html",
+      "permanent": false
+}
+]
 }
