@@ -6,9 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const headerUrl = "header.html"; // use correct relative path
-  const cssHref = "header.css";
-  const jsHref = "header.js";
+  const headerUrl = "/frontend/header.html"; 
+  const cssHref = "/frontend/header.css";    
+  const jsHref = "/frontend/header.js";      
+
 
   fetch(headerUrl)
     .then((res) => {
