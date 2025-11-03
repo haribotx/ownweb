@@ -66,7 +66,8 @@ fetch(`${CONFIG.API_BASE_URL}/works?populate=*`)
      document.querySelectorAll('.work-detailsMore').forEach(details => {
   details.addEventListener('click', (e) => {
     const workId = e.target.dataset.id;
-    window.location.href = `workDetails.html?id=${workId}`;
+    // window.location.href = `workDetails.html?id=${workId}`;
+    window.location.href = `/workDetails?id=${blogId}`;
   });
 });
 
