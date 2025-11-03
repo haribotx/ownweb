@@ -3,10 +3,10 @@
 ================================*/
 body {
     /* background-color: black; */
-    padding: 10px;
+    padding-top: 70px;
     font-family: 'Inter', Arial, sans-serif;
     margin: 0;
-    padding: 100px; 
+    /* padding: 100px;  */
     /* background-image: url(./images/Blog\ page.png); */
     background-image: url(/frontend/images/Blog\ page.png);
         background-repeat: no-repeat;
@@ -98,7 +98,7 @@ body {
 background-color: #FDFDFD1A;
 border-color: white;
 border-radius: 100px;
-
+cursor: pointer;
 }
 
 .filter-item.active,
@@ -112,6 +112,7 @@ border-radius: 100px;
   border-radius: 100px;
   transform: translateY(-2px);
   box-shadow: 0 0 10px rgba(255,255,255,0.4);
+
 }
 
 .filter-item {
@@ -122,6 +123,7 @@ background-color: #FDFDFD1A;
 border-color: white;
 border-radius: 100px;
   border: 1px solid white;
+cursor: pointer;
 
 
 }
@@ -292,10 +294,12 @@ border-radius: 100px;
     font-size: 0.62rem;       /* Smaller font size */
     padding: 5px 8px;        /* Reduce padding */
     border-radius: 20px;
+    cursor: pointer;
   }
 
   .filter-item.active {
     padding: 5px 10px;
+    cursor: pointer;
   }
 
   .blog-card h2 {

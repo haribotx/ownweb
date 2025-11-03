@@ -59,7 +59,8 @@ fetch(`${CONFIG.API_BASE_URL}/blogs?populate=*`)
       document.querySelectorAll('.blog-image').forEach(img => {
         img.addEventListener('click', (e) => {
           const blogId = e.target.dataset.id;
-          window.location.href = `blogDetails.html?id=${blogId}`;
+          // window.location.href = `blogDetails.html?id=${blogId}`;
+          window.location.href = `/blogDetails?id=${blogId}`;
         });
       });
     }

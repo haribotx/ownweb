@@ -9,7 +9,7 @@
       "destination": "/frontend/work.html"
     },
     {
-      "source": "/work-details",
+      "source": "/workDetails",
       "destination": "/frontend/workDetails.html"
     },
     {
@@ -17,7 +17,7 @@
       "destination": "/frontend/blog.html"
     },
       {
-      "source": "/blog-details",
+      "source": "/blogDetails",
       "destination": "/frontend/blogDetails.html"
     },
       {
