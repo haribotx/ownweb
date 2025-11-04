@@ -15,41 +15,56 @@ function showToast(message) {
 //for sending contact messages
 
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById('contactForm')
+  const form = document.getElementById("contactForm");
 
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-        const name = document.getElementById("name").value.trim()
-        const email = document.getElementById("email").value.trim()
-        const message = document.getElementById("message").value.trim()
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-        try {
-            const response = await fetch(`${CONFIG.API_BASE_URL}/contact-messages`, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    data: {
-                        name, email, message
-                    }
-                })
-            })
-            if (response.ok) {
-                showToast("Message sent Succesfully")
-                form.reset()
-            }
-            else {
-                showToast("Failed to send message.Please try again")
-            }
-        } catch (error) {
-            console.log('Error: ', error);
-            showToast("Something went wrong")
+    if (!name || !email || !message) {
+      showToast("Please fill all fields");
+      return;
+    }
 
-        }
-    })
-})
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("message", message);
+
+    try {
+
+        const formspreeRes = await fetch("https://formspree.io/f/mdkprjdy", {   //formspree endpoint
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+
+      const strapiRes = await fetch(`${CONFIG.API_BASE_URL}/contact-messages`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          data: { name, email, message },
+        }),
+      });
+
+      if (formspreeRes.ok && strapiRes.ok) {
+        showToast("Message sent successfully!");
+        form.reset();
+      } else {
+        console.error("Formspree or Strapi failed");
+        showToast("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      showToast("Something went wrong.");
+    }
+  });
+});
+
+
 function initAnimatedText() {
     const animatedTextSection = document.querySelector('.animated-text-section');
     const textWords = document.querySelectorAll('.text-word');
