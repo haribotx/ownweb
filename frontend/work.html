@@ -1,77 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Botx Automations</title>
-  <style>
-     html, body {
-    background-color: #000;
-    color: #fff;
-    margin: 0;
-    padding: 0;
-  }
-  </style>
-  <link rel="stylesheet" href="/frontend/work.css" />
-  <link rel="icon" type="image/png" href="/frontend/images/logo.png" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Botx Automations</title>
+    <style>
+      html,
+      body {
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <link rel="stylesheet" href="/frontend/work.css" />
+    <link rel="icon" type="image/png" href="/frontend/images/logo.png" />
+  </head>
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+      Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"),
+        s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = "https://embed.tawk.to/690a19695968e81953dae762/1j97n6huq";
+      s1.charset = "UTF-8";
+      s1.setAttribute("crossorigin", "*");
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+  <body>
+    <div class="vertical-lines-overlay"></div>
+    <header>
+      <div id="header-placeholder"></div>
+    </header>
 
-
-</head>
-<body>
-  <div class="vertical-lines-overlay"></div>
-      <header>
-         <div id="header-placeholder"></div>
-  </header>
-
-  <!-- Work Section -->
-  <section class="work-section">
+    <!-- Work Section -->
+    <section class="work-section">
       <span class="worktitle">//work</span>
-    <div class="container">
-      <h2 class="section-title">Showcasing  <span class="section-title-span">Design Thinking</span>
-        And User <span class="section-title-span">Experience</span></h2>
-      <div class="work-grid">
-        <!-- Work cards will be injected here -->
+      <div class="container">
+        <h2 class="section-title">
+          Showcasing <span class="section-title-span">Design Thinking</span> And
+          User <span class="section-title-span">Experience</span>
+        </h2>
+        <div class="work-grid">
+          <!-- Work cards will be injected here -->
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <section class="filter-section">
-    <div class="head-section"  id="filter-section">
-      <h2 class="filter-item " data-category="mobileapp">Mobile App</h2>
-      <h2 class="filter-item" data-category="webapp">Web App</h2>
-      <h2 class="filter-item " data-category="website">Website</h2>
-      <h2 class="filter-item " data-category="custom">Custom Sas Product</h2>
-
-    </div>
-  </section>
+      <div class="head-section" id="filter-section">
+        <h2 class="filter-item" data-category="mobileapp">Mobile App</h2>
+        <h2 class="filter-item" data-category="webapp">Web App</h2>
+        <h2 class="filter-item" data-category="website">Website</h2>
+        <h2 class="filter-item" data-category="custom">Custom Sas Product</h2>
+      </div>
+    </section>
     <script>
-  const filterItems = document.querySelectorAll('.filter-item');
+      const filterItems = document.querySelectorAll(".filter-item");
 
-  filterItems.forEach(item => {
-    item.addEventListener('click', () => {
-      // Remove active from all
-      filterItems.forEach(i => i.classList.remove('active'));
-      
-      // Add active to clicked
-      item.classList.add('active');
+      filterItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          // Remove active from all
+          filterItems.forEach((i) => i.classList.remove("active"));
 
-    
-      const selected = item.textContent.trim();
+          // Add active to clicked
+          item.classList.add("active");
 
-      // Example: you can call your filtering logic here
-      // filterWorks(selected);
-    });
-  });
-</script>
+          const selected = item.textContent.trim();
 
-<section class="works" id="work-container">
-</section>
+          // Example: you can call your filtering logic here
+          // filterWorks(selected);
+        });
+      });
+    </script>
 
-<div id="footer-placeholder"></div>
+    <section class="works" id="work-container"></section>
 
- <script src="/frontend/includeHeader.js"></script>
-  <script src="/frontend/includeFooter.js"></script>
-<script src="/frontend/config.js"></script>
-      <script src="/frontend/work.js"></script>
-</body>
+    <div id="footer-placeholder"></div>
+
+    <script src="/frontend/includeHeader.js"></script>
+    <script src="/frontend/includeFooter.js"></script>
+    <script src="/frontend/config.js"></script>
+    <script src="/frontend/work.js"></script>
+  </body>
 </html>
